@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
+
+/* ----------------------
+Configurações da Página 
+------------------------*/
+/* Paleta de Cores */
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: 0;
+    font-family: 'Nunito Sans';
+}
+:root {
+  --black: #212322;
+  --primary: #E10600;
+  --white: #fff;
+}
+/* ---------------
+Fim Configurações 
+-----------------*/
+/*------
+    Menu
+------*/
+.navbar{
+    display: flex;
+    height: 80px;
+    padding: 0 2em;
+    align-items: center;
+    justify-content: start;
+}
+
+.navbar-nav ul{
+    list-style: none;
+    text-align: center;
+    justify-content: center;
+    margin: 0 3rem;
+}
+.navbar-link{
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+.navbar-link:hover{
+    color: var(--primary);
+}
+.btn{
+    background: var(--white);
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 700;
+    border-radius: 2em;
+    transition: all 0.5s ease;
+    padding: 0.5em 2em;
+}
+.btn:hover{
+    background: var(--black);
+    color: var(--white);
+}
+
+/* Logo Menu */
+.navbar-logo {
+  width: 10em;
+  cursor: pointer;
+}
+/*-------
+Fim Menu
+-------*/
+/* ---
+Hero 
+-----*/
+.hero{
+    background: rgb(33,35,34);
+    background: -moz-linear-gradient(28deg, rgba(33,35,34,1) 42%, rgba(64,69,66,1) 100%);
+    background: -webkit-linear-gradient(28deg, rgba(33,35,34,1) 42%, rgba(64,69,66,1) 100%);
+    background: linear-gradient(28deg, rgba(33,35,34,1) 42%, rgba(64,69,66,1) 100%);
+    width: 100%;
+    height: 40vh;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+/* SVG Hero */
+.container-hero-svg img{width: 30em;}
+/* Texto Hero */
+.container-hero{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100vw;
+    height: 100%;
+}
+.container-hero-article{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container-hero-svg{
+    display: flex;
+    align-items: flex-end;
+}
+
+.container-hero-article h1{
+    font-size: 3em;
+    font-weight: 800;
+}
+.container-hero-article p{
+    line-height: 28px;
+    text-align: center;
+    margin: 1em 0;
+}
