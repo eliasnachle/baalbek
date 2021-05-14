@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
+
+/* ----------------------
+Configurações da Página 
+------------------------*/
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans',sans-serif;
+}
+/* Paleta de Cores */
+:root {
+  --black: #212322;
+  --primary: #E10600;
+  --white: #fff;
+  --gray: #989898;
+  --border: #363636;
+  --textInput: #484848;
+}
+/* Adaptando altura */
+html,body{
+    height: 100%;
+}
+body{
+    background-image: url("../imgs/background_form.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/* -----Fim Configurações--------*/
+/*---------
+ Background
+--------- */
+.content-bakground{display: none;}
+/* -------
+Formulário 
+----------*/
+.content-form{
+    background: var(--black);
+    position: absolute;
+    right: 0;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+    padding: 0 5em;
+    display: flex;
+    align-items: center;
+}
+/* Logo Formulário */
+.form-logo{text-align: center;}
+.form-logo img{
+    width: 18em;
+}
+.form-logo article p {
+    color: var(--gray);
+    font-size: 16px;
+    white-space: pre-line;
+    max-width: 35em;
+}
+/* Inputs */
+.form-container{
+    padding: 5em 0 1em 0;
+}
+.form-input{
+    padding: 0.5em 0 1em 0;
+}
+/* Label */
+.form-input label{
+    display: block;
+    font-size: 18px;
+    letter-spacing: 0.45px;
+    font-weight: 700;
+    color: var(--white);
+}
+/* Input */
+::placeholder{color: var(--textInput);}
+.form-input input{
+    width: 30em;
+    padding: 1em 2em;
+    border-radius: 4px;
+    border: 1.5px solid var(--border);
+    background: var(--black);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: var(--white);
+    transition: border 0.15s ease-in;
+}
+.form-input input:focus{
+    border: 1.5px solid var(--primary);
+}
+/* Botão Enviar */
+.form-btn button{
+    background: var(--primary);
+    padding: 1.25em 6em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s ease-in;
+    margin-bottom: 0.5em;
+}
+.form-btn button:hover{
+    background: #bb0a04;
+}
+.form-btn button a,.form-btn p{
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--white);
+    text-decoration: none;
+}
+.form-btn p a{
+    color: var(--primary);
+    cursor: pointer;
+    text-decoration: none;
+}
+/* Mensagem de Validação */
+.msg-validate{
+    display: block;
+    color: var(--primary);
+}
+/*----------
+Conta Criada
+-----------*/
+/* Conteúdo Formulário */
+.container-verify-email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Titulo */
+.container-verify-email h1 {
+    font-size: 50px;
+    color: var(--white);
+}
+/* Texto */
+.container-verify-email p {
+    color: var(--gray);
+    font-size: 16px;
+    white-space: pre-line;
+    text-align: center;
+}
+/* Imagem */
+.container-verify-email img {
+    width: 8em;
+}
+/*---------------
+ Reponsividade
+---------------- */
+@media screen and (max-width: 980px){
+    body{background:var(--black)}
+    /* ----------
+    Background
+    ------------ */
+    .content-bakground{display: flex;}
+    /*---------
+    Formulário
+    ----------*/
+    .content-form{
+        position: unset;
+        border-radius: unset;
+        justify-content: center;
+        align-items: center;
+        padding: 2em 2em;
+    }
+    form{width: 100%;}
+    .form-logo article p{max-width: unset;}
+    .form-container{padding: unset;}
+    .form-input{
+        display: flex;
+        flex-direction: column;
+    }
+    .form-input input{width: unset;}
+    /* Inputs */
+}

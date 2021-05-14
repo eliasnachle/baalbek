@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
-
 /* ----------------------
 Configurações da Página 
 ------------------------*/
@@ -8,8 +7,8 @@ Configurações da Página
     margin: 0;
     border: 0;
     outline: 0;
-    box-sizing: 0;
-    font-family: 'Nunito Sans';
+    box-sizing: border-box;
+    font-family: 'Nunito Sans',sans-serif;
 }
 /* Paleta de Cores */
 :root {

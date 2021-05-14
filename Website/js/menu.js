@@ -1,3 +1,4 @@
+// Funções Menu
 function open_menu(){
     navbar.style.left = '0';
     body.style.overflow = 'hidden';

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se | Baalbek</title>
+    <link rel="stylesheet" href="css/form.css">
+    <script src="js/validation_form.js"></script>
+</head>
+<body>
+    <!-- Conteúdo -->
+    <main class="content">
+        <section class="content-bakground">
+          <img src="imgs/background_form.svg" />
+        </section>
+        <!-- Conteúdo Formulário -->
+        <section class="content-form">
+          <!-- Fomrulário -->
+          <form id="form">
+            <div class="form-logo">
+              <figure>
+                <a href="index.html"><img src="imgs/baalbek_logo_red.svg" alt="Logotipo Baalbek"/></a>
+                <span class="msg-validate" id="msg_valitadate"></span>
+              </figure>
+              <article>
+                  <span id="frase" style="display:none;"</span>
+              </article>
+            </div>
+            <div class="form-container" id="form_container">
+              <!-- Campo Nome -->
+              <div class="form-input" id="teste">
+                <label>Nome:</label>
+                <input type="text" placeholder="Digite seu nome"  id="ipt_name" onkeyup="validate_name()"/>
+                <!-- Mensagem de Validação -->
+                <span class="msg-validate" id="msg_validate_name"></span>
+              </div>                
+              <!-- Campo E-mail -->
+              <div class="form-input">
+                <label>E-mail:</label>
+                <input type="text" placeholder="Digite seu e-mail" id="ipt_email" onkeyup="validate_email()"/>
+                <!-- Mensagem de Validação -->
+                <span class="msg-validate" id="msg_validate_email"></span>
+              </div>                
+              <!-- Campo Data de Nascimento -->
+              <div class="form-input">
+                <label>Data de Nascimento:</label>
+                <input type="date" id="ipt_date" onkeyup="validate_date()" />
+                <!-- Mensagem de Validação -->
+                <span class="msg-validate" id="msg_validate_date"></span>
+              </div>
+              <!-- Campo Senha -->
+              <div class="form-input">
+                <label>Senha:</label>
+                <input type="text" placeholder="Digite sua senha" id="ipt_password" onkeyup="validate_password()"/>
+                <!-- Mensagem de Validação -->
+                <span class="msg-validate" id="msg_validate_password"></span>
+              </div>
+            </div>
+            <!-- Botão Enviar -->
+            <div class="form-btn" id="form_btn">
+              <button type="button" onclick="enviar()"><a>Cadastrar</a></button>
+              <!-- Msg Registrar-se -->
+              <p>Já é cadastrado? <a href="signin.html">Faça login</a></p>
+            </div>
+            <!-- Usuário cadastrado -->
+            <div id="container-verify-email"></div>
+          </form>          
+        </section>
+      </main>    
+</body>
+</html>
