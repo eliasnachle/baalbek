@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baalbek - Filmes, Séries, Animes</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/menu.js"></script>
+  </head>
+  <body id="body">
+    <!-- Conteúdo do Site -->
+    <main class="content-website">
+      <!-- Seção Hero -->
+      <section class="hero">
+        <!-- Cabeçalho -->
+        <header class="navbar">
+          <!-- Hamburger Menu -->
+          <div class="navbar-hamburger" onclick="open_menu()">
+            <svg fill="#FFF" viewBox="0 0 512 512" width="3em" xmlns="http://www.w3.org/2000/svg">
+              <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"></path>
+            </svg>
+          </div>
+          <!-- Logo Menu -->
+          <div class="navbar-logo">
+            <a href="index.html">
+              <img src="imgs/baalbek_logo.svg" alt="Baalbek Logo" />
+            </a>
+          </div>
+          <!-- Itens Menu -->
+          <nav class="navbar-nav" id="navbar">
+            <!-- Botão Fechar -->
+            <div class="mobile-navar-close" onclick="close_menu()">
+              <svg width="2em"  viewBox="0 0 12 12">
+                <g fill="none" fill-rule="evenodd" aria-hidden="true">
+                  <path fill="currentColor" d="M9.5 3.205L8.795 2.5 6 5.295 3.205 2.5l-.705.705L5.295 6 2.5 8.795l.705.705L6 6.705 8.795 9.5l.705-.705L6.705 6"></path>
+                </g>
+              </svg>
+            </div>
+            <!-- Logo Menu Mobile -->
+            <div class="mobile-navbar-logo">
+              <a href="index.html">
+                <img src="imgs/baalbek_logo_red.svg" alt="Baalbek Logo" />
+              </a>
+            </div>
+            <!-- Itens Menu -->
+            <ul>
+              <li><a href="#" class="navbar-link">Quem é o Elias?</a></li>
+              <li><a href="#" class="navbar-link">Fale Conosco</a></li>              
+            </ul>
+            <div class="mobile-navbar-btn btn">
+              <li><a href="signin.html" class="btn">Acessar</a></li>
+            </div>
+          </nav>
+          <!-- Botão Acessar-->
+          <div class="navbar-btn">
+            <a href="signin.html" class="btn">Acessar</a>
+          </div>
+        </header>
+        <!-- Fim Menu -->
+        <div class="container-hero">
+          <!-- Imagens -->
+          <figure class="container-hero-svg">
+            <img class="hero_svg" src="imgs/hero.svg" />
+          </figure>
+          <!-- Texto -->
+          <article class="container-hero-article">
+            <!-- Título -->
+            <h1>Onde os sonhos são possíveis</h1>
+            <!-- Texto -->
+            <p>Cansado do regular? vamos fugir um pouco do cotidiano e
+            compartilhar nossas teorias, críticas e resenhas tanto
+            de filmes, animes, series e desenhos. A Baalbek traz
+            tudo isso dentro de uma plataforma única.</p>
+            <!-- Link -->
+            <a href="signup.html" class="btn">Registrar-se</a>
+          </article>
+        </div>
+      </section>
+      <!-- Seção Itens -->
+      <section class="content-itens">
+        <!-- Item 1 -->
+        <div class="container-item">
+          <!-- Figura  -->
+          <figure class="figure-item">
+            <img src="imgs/item1.svg">
+          </figure>
+          <!-- Texto -->
+          <article class="article-item">
+            <!-- Titulo -->
+            <h1>Críticas e Teorias Feitas
+            por mim, sobre Filmes, 
+            Animes, Séries.</h1>
+            <!-- Descrição -->
+            <p>Na plataforma do Baalbek, você tem acesso a centenas
+            de críticas, resenhas e teorias.</p>
+          </article>
+        </div>
+        <!-- Item 2 -->
+        <div class="container-item reverse">
+          <!-- Texto -->
+          <article class="article-item">
+            <!-- Titulo -->
+            <h1>Centenas de opções para
+            todos os gostos e estilos.</h1>
+            <!-- Descrição -->
+            <p>Na plataforma do Baalbek, você tem acesso a centenas
+            de críticas, resenhas e teorias, onde na maioria
+            são feitas por vocês!</p>
+          </article>
+          <!-- Figura  -->
+          <figure class="figure-item">
+            <img src="imgs/item1.svg">
+          </figure>          
+        </div> 
+        <!-- Item 3 -->
+        <div class="container-item">
+          <!-- Figura  -->
+          <figure class="figure-item">
+            <img src="imgs/item1.svg">
+          </figure>
+          <!-- Texto -->
+          <article class="article-item">
+            <!-- Titulo -->
+            <h1>Críticas Feitas por
+            Profissionais e Usuários, 
+            onde você foi dar 
+            a sua opinião!</h1>
+            <!-- Descrição -->
+            <p>Na plataforma do Baalbek, você tem acesso a centenas
+            de críticas, resenhas e teorias, onde na maioria
+            são feitas por vocês!</p>
+          </article>
+        </div>               
+      </section>
+      <!-- Propaganda Registre-se
+      <section class="ads-register">
+
+      </section> -->
+    </main>
+    <!-- Rodapé -->
+    <footer class="footer">
+      <!-- Conteúdo Rodapé -->
+      <div class="content-footer">
+        <!-- Sobre Nós -->
+        <aritcle class="about-footer">
+          <figure>
+            <img src="imgs/baalbek_logo_red.svg">
+          </figure>
+          <p>Somos uma empresa jovem, 
+          voltada para o agronegócio,
+          especificamente para o cult,
+          uma fruta exótica e requisi. 
+          Fundada com o intuito de di
+          a tecnologia em todos os me
+          possíveis enquanto auxiliam
+          um setor tão importante par</p>
+        </aritcle>
+        <!-- Itens-->
+        <ul class="container-footer-links">
+          <li class="footer-title"><a href="#">Quem é o Elias?</a></li>
+          <li class="footer-link"><a href="#">História</a></li>
+          <li class="footer-link"><a href="#">Aptidões</a></li>
+          <li class="footer-link"><a href="#">Hobbies</a></li>
+        </ul>
+        <ul class="container-footer-links">
+          <li class="footer-title"><a href="#">Fale Conosco</a></li>
+          <li class="footer-link"><a href="#">Dúvidas</a></li>
+          <li class="footer-link"><a href="#">Sugestões</a></li>
+          <li class="footer-link"><a href="#">Contato</a></li>
+        </ul>
+      </div>      
+      <!-- Copyright -->
+      <div class="copyright">
+        <p>© 2021 Baalbek</p>
+      </div>
+    </footer>
+    <!-- Fim Conteúdo do Site -->
+  </body>
+</html>
