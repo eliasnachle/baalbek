@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baalbek - Filmes, Séries, Animes</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/support.css">
+    <script src="js/menu.js"></script>
+  </head>
+  <body id="body">
+    <!-- Cabeçalho -->
+    <header class="navbar">
+      <!-- Hamburger Menu -->
+      <div class="navbar-hamburger" onclick="open_menu()">
+          <svg fill="#FFF" viewBox="0 0 512 512" width="3em" xmlns="http://www.w3.org/2000/svg">
+            <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"></path>
+          </svg>
+      </div>
+      <!-- Logo Menu -->
+      <div class="navbar-logo">
+          <a href="index.html">
+            <img src="imgs/baalbek_logo.svg" alt="Baalbek Logo" />
+          </a>
+      </div>
+      <!-- Itens Menu -->
+      <nav class="navbar-nav" id="navbar">
+          <!-- Botão Fechar -->
+          <div class="mobile-navar-close" onclick="close_menu()">
+            <svg width="2em"  viewBox="0 0 12 12">
+              <g fill="none" fill-rule="evenodd" aria-hidden="true">
+                <path fill="currentColor" d="M9.5 3.205L8.795 2.5 6 5.295 3.205 2.5l-.705.705L5.295 6 2.5 8.795l.705.705L6 6.705 8.795 9.5l.705-.705L6.705 6"></path>
+              </g>
+            </svg>
+          </div>
+          <!-- Logo Menu Mobile -->
+          <div class="mobile-navbar-logo">
+            <a href="index.html">
+              <img src="imgs/baalbek_logo_red.svg" alt="Baalbek Logo" />
+            </a>
+          </div>
+          <!-- Itens Menu -->
+          <ul>
+            <li><a href="sobre.html" class="navbar-link">Quem é o Elias?</a></li>
+            <li><a href="suporte.html" class="navbar-link">Suporte</a></li>              
+          </ul>
+          <div class="mobile-navbar-btn btn">
+            <li><a href="login.html" class="btn">Acessar</a></li>
+          </div>
+      </nav>
+      <!-- Botão Acessar-->
+      <div class="navbar-btn">
+        <a href="login.html" class="btn">Acessar</a>
+      </div>
+    </header>    
+    <!-- Conteúdo do Site -->
+    <main class="content-website">
+      <!-- Fim Menu -->
+      <section class="content-itens">
+        <!-- Item 1 -->
+        <div class="container-item">
+          <!-- Texto -->
+          <article class="article-item">
+            <!-- Titulo -->
+            <h1>Precisa de Ajuda?</h1>
+            <!-- Descrição -->
+            <p>Problemas de conexão? não sabe como utilizer a plataforma?<br>
+            calma! aqui você encontra a solução dos seus problemas.</p>
+          </article>
+          <div class="container-cards">
+            <!-- Card Item Suporte -->
+              <a href="suporte/faleconosco.html" class="card">
+                <!-- Icone -->
+                <figure>
+                  <img src="icons/support.svg" alt="">
+                </figure>
+                <!-- Texto -->
+                <h2>Fale Conocsco</h2>
+              </a>
+            <!-- Card Item Plataforma -->
+              <a href="suporte/plataforma.html" class="card">
+                <!-- Icone -->
+                <figure>
+                  <img src="icons/plataform.svg" alt="">
+                </figure>
+                <!-- Texto -->
+                <h2>Como utilizar?</h2>
+              </a>
+            <!-- Card Item Conexão -->
+              <a href="suporte/conexao.html" class="card">
+                <!-- Icone -->
+                <figure>
+                  <img src="icons/connection.svg" alt="">
+                </figure>
+                <!-- Texto -->
+                <h2>Conexão</h2>
+              </a>                      
+          </div>
+        </div>           
+      </section>
+      <!-- Propaganda Registre-se
+      <section class="ads-register">
+
+      </section> -->
+    </main>
+    <!-- Rodapé -->
+    <footer class="footer">
+      <!-- Conteúdo Rodapé -->
+      <div class="content-footer">
+        <!-- Sobre Nós -->
+        <aritcle class="about-footer">
+          <figure>
+            <img src="imgs/baalbek_logo_red.svg">
+          </figure>
+          <p>Somos uma empresa jovem, 
+          voltada para o agronegócio,
+          especificamente para o cult,
+          uma fruta exótica e requisi. 
+          Fundada com o intuito de di
+          a tecnologia em todos os me
+          possíveis enquanto auxiliam
+          um setor tão importante par</p>
+        </aritcle>
+        <!-- Itens-->
+        <ul class="container-footer-links">
+          <li class="footer-title"><a href="#">Quem é o Elias?</a></li>
+          <li class="footer-link"><a href="#">História</a></li>
+          <li class="footer-link"><a href="#">Aptidões</a></li>
+          <li class="footer-link"><a href="#">Hobbies</a></li>
+        </ul>
+        <ul class="container-footer-links">
+          <li class="footer-title"><a href="#">Fale Conosco</a></li>
+          <li class="footer-link"><a href="#">Dúvidas</a></li>
+          <li class="footer-link"><a href="#">Sugestões</a></li>
+          <li class="footer-link"><a href="#">Contato</a></li>
+        </ul>
+      </div>      
+      <!-- Copyright -->
+      <div class="copyright">
+        <p>© 2021 Baalbek</p>
+      </div>
+    </footer>
+    <!-- Fim Conteúdo do Site -->
+  </body>
+</html>

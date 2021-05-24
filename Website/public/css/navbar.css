@@ -1,0 +1,107 @@
+/* Botão */
+.btn{
+    background: var(--white);
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 700;
+    border-radius: 2em;
+    transition: all 0.5s ease;
+    padding: 0.5em 2em;
+}
+.btn:hover{
+    background: var(--black);
+    color: var(--white);
+}
+/*------
+Menu
+------*/
+.navbar{
+    display: flex;
+    height: 80px;
+    padding: 0 2em;
+    align-items: center;
+    justify-content: start;
+}
+.navbar-nav ul{
+    list-style: none;
+    text-align: center;
+    justify-content: center;
+    margin: 0 3rem;
+    display: flex;
+    gap: 3em;
+}
+.navbar-link{
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+.navbar-link:hover{
+    color: var(--primary);
+}
+/* Logo Menu */
+.navbar-logo {
+  width: 10em;
+  cursor: pointer;
+}
+/* Menu Responsivo */
+.navbar-hamburger,.mobile-navbar-btn,.mobile-navbar-logo,.mobile-navar-close{display: none;}
+/*-------Fim Menu-------*/
+/* -----------
+Responsividade
+------------- */
+@media screen and (max-width: 690px){
+    /* Menu */
+    .navbar{justify-content:space-between}
+    .navbar-hamburger {display: block;cursor: pointer;}
+    .navbar-nav,.navbar-btn {display: none;}
+    /*-----------
+     Mobile Menu
+    ------------ */
+    .navbar-nav {
+        display: block;
+        background: var(--black);
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -1000px;        
+        border-radius: 0 10px 10px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+        padding: 0 2em 1em;
+        transition: left 1s ease;
+        }
+    /* Botão Fechar */
+    .mobile-navar-close {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 1em;
+        cursor: pointer;
+    }
+    /* Logo */
+    .mobile-navbar-logo{
+        display: block;
+        border-bottom: 1px solid #797979;
+    }
+    .mobile-navbar-logo a img{        
+        width: 15em;
+    }
+    /* Itens */
+    .navbar-nav ul {
+        height: 70%;
+        flex-direction: column;
+        justify-content: start;        
+        text-align: unset;
+        margin: 2rem 1rem;
+    }
+    /* Botão */
+    .mobile-navbar-btn {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    .abremenu{left: 0;}
+}

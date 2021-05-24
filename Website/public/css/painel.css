@@ -10,8 +10,8 @@ Configurações da Página
     box-sizing: border-box;
     font-family: 'Nunito Sans',sans-serif;
 }
-/* Paleta de Cores */
 :root {
+  /* Paleta de Cores */
   --background: #111111;
   --black: #212322;
   --primary: #E10600;
@@ -22,13 +22,11 @@ Configurações da Página
   --textInput: #484848;
   --actionTag: #FF9901;
   --adventureTag: #34C6EC;
-} 
-/* Widths */
-:root{
-    --vertical-menu: 18em;
-    --mobile-vertical-menu: 8em;
-    --header: 5em;
-}
+  /* Widths */
+  --vertical-menu: 18em;
+  --mobile-vertical-menu: 8em;
+  --header: 5em;
+}  
 /* Adaptando altura */
 /* Body */
 html,body{
@@ -63,7 +61,7 @@ Header
     align-items: center;
     width: 100%;
     height: var(--header);
-    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     padding: 0.5em 2em 0.5em var(--vertical-menu);
 }
 .header-user{
@@ -112,7 +110,7 @@ Menu Lateral
 -------*/
 .navbar-vertical{
     background: var(--background);
-    border: 1px solid var(--border);
+    border-right: 1px solid var(--border);
     position: fixed;
     height: 100%;
     width: var(--vertical-menu);
@@ -303,6 +301,8 @@ Responsividade
         .header{display: none;}
         /* Menu */
         .navbar-vertical{
+            border-top: 1px solid var(--border);
+            border-right: unset;
             flex-direction: row;
             bottom: 0;
             height: auto;

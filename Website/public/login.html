@@ -17,7 +17,7 @@
       <!-- Conteúdo Formulário -->
       <section class="content-form">
         <!-- Fomrulário -->
-        <form>
+        <form id="form_login" method="post" onsubmit="return entrar()">
           <div class="form-logo">
             <figure>
               <a href="index.html"><img src="imgs/baalbek_logo_red.svg" alt="Logotipo Baalbek"/></a>
@@ -27,25 +27,50 @@
             </article>
           </div>
           <div class="form-container">
-            <!-- Campo Email -->
+            <!-- Campo Login -->
             <div class="form-input">
-              <label>E-mail:</label>
-              <input type="text" placeholder="Digite seu login" />
+              <label>Login:</label>
+              <input name="login" type="text" placeholder="Digite seu login" />
             </div>
             <!-- Campo Senha -->
             <div class="form-input">
               <label>Senha:</label>
-              <input type="password" placeholder="Digite sua senha" />
+              <input name="senha" type="password" placeholder="Digite sua senha" />
             </div>
           </div>
           <!-- Botão Enviar -->
           <div class="form-btn">
-            <button type="button"><a href="panel.html">Entrar</a></button>
+            <button id="btn_entrar">Entrar</button>
             <!-- Msg Registrar-se -->
-            <p>Não é cadastrado? <a href="signup.html">Cadastre-se</a></p>
+            <p>Não é cadastrado? <a href="cadastro.html">Cadastre-se</a></p>
           </div>
         </form>
       </section>
     </main>
   </body>
 </html>
+<script>
+function entrar() {
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+
+                    window.location.href = 'panel.html';
+                });
+
+            } else {
+                console.log('Erro de login!');
+            }
+        });
+        return false;
+    }
+</script>

@@ -102,7 +102,7 @@ Formulário
 .form-btn button:hover{
     background: #bb0a04;
 }
-.form-btn button a,.form-btn p{
+.form-btn button,.form-btn button a,.form-btn p{
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.5px;

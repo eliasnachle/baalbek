@@ -1,0 +1,289 @@
+/* ----------------------
+Configurações da Página 
+------------------------*/
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans',sans-serif;
+}
+:root{
+    /* Paleta de Cores */
+    --black: #212322;
+    --primary: #E10600;
+    --white: #fff;    
+    --background: #111111;
+    --textInput: #484848;
+    --textItens: #494949;
+    --text: #989898;
+    --card: #272727;
+    /* Tamanhos de Fonts */
+    --sizeTitle: clamp(5vw,10vw,10em);
+    --sizeText: clamp(1.2em,0.8vw,1.5em);
+    /* Cards */
+    --hobbiesCard: clamp(12vw,17vw,24em);
+    --textCard: clamp(0.8em,0.9vw,1.15em);
+    /* Espaços de Menus */
+    --verticalNavbar: 7em;
+    --navbar: 80px;
+}
+/* Adaptando altura */
+html,body{
+    scroll-behavior: smooth;
+    height: unset;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+}
+.content-website{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.content-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: var(--navbar) 2em 0 calc(2em + var(--verticalNavbar));
+}
+.child-navbar{
+    z-index: 9;
+    position: fixed;
+    background: var(--background);
+    width: 100%;
+}
+/* ----------
+Menu Lateral
+----------- */
+.navbar-vertical{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 7em;
+    background: var(--background);
+}
+.nav-vertical ul{
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+.nav-link{
+    font-size: 3em;
+    text-decoration: none;
+    color: var(--white);
+    transition: all 0.5s ease;
+}
+/* Efeito */
+.nav-link:hover{
+    color: var(--textInput);
+}
+.active {
+    color: var(--primary);
+}
+/* ----------
+Sobre Mim
+------------ */
+.content-about{
+    height: 100vh;
+    gap: 5em;
+}
+/* Foto */
+.content-about > figure > img{
+    width: 25vw;
+    border-radius: 1em;
+    box-shadow: 1px 2px 3px 3px #000000;
+}
+/* Artigo */
+.section-title{
+    font-size: var(--sizeTitle);
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.1em;
+    color: var(--white);
+}
+.content-about p {
+    font-size: var(--sizeText);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 2em;
+    color: var(--text);
+    white-space: pre-line;
+}
+/* -----
+Valores
+------ */
+.content-values{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.container-itens{
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+}
+.item-card{
+    border-radius: 1.5em;
+    background: var(--card);
+    width: clamp(15em,13vw,14vw);
+    padding: 3em 2em 2em 2em;
+}
+/* Icone */
+.item-card img{
+    width: clamp(3vw, 3rem, 7vw);
+    filter: invert(100%);
+}
+/* Titulo */
+.item-card h2{
+    font-size: clamp(1.2em,1.5em,1.8em);
+    letter-spacing: 1px;
+    color: var(--primary);
+    padding: clamp(.1rem,.5rem,-0.2rem) 0;
+}
+/* Texto */
+.item-card p{
+    font-size: clamp(0.8em,0.9vw,1.15em);
+    letter-spacing: 1px;
+    line-height: 2em;
+    color: var(--white);
+}
+/* Efeito Itens */
+.container-itens > *{
+    transition: ease 300ms;
+    cursor: pointer;
+}
+.container-itens:hover > *:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    background: var(--white);
+}
+.item-card:hover img{
+    filter: invert(0%);
+}
+.item-card:hover p{
+    color: var(--textItens);
+}
+/* -----
+Hobbies
+------- */
+.content-hobbies{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+/* Alinhamento */
+.container-hobbies{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    ". a ."
+    "b . c";
+}
+.item-card:nth-child(1){grid-area: a;}
+.item-card:nth-child(2){grid-area: b;}
+.item-card:last-child{grid-area: c;}
+/* Cards */
+.hobbies-card {
+    text-align: center;
+    border-radius: 100%;
+    width: var(--hobbiesCard);
+    height: var(--hobbiesCard);
+    padding: 1em clamp(1em,2em,4em);
+    display: grid;
+    place-items: center;
+}
+.hobbies-card p{
+    font-size: var(--textCard);
+}
+/* Efeito Itens */
+.container-hobbies > *{
+    transition: ease 600ms;
+    cursor: pointer;
+}
+.container-hobbies:hover > *:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    background: var(--white);
+}
+/*----------
+Agradecimento 
+ -----------*/
+.content-credits{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.container-credits{
+    display: grid;
+    place-items: center;
+    gap: 1em;
+}
+.container-credits figure img{
+    width: 20em;
+}
+.container-credits p{
+    color: var(--white);
+    font-size: var(--sizeText);
+    line-height: 2em;
+    white-space: pre-line;
+}
+/*------------
+Responsividade
+------------ */
+/* 1080px */
+
+/* clamp(15vw,22vw,28em) */
+@media screen and (max-width: 1080px){
+    :root{
+        --sizeTitle: clamp(5vw,8rem,12vw);
+        --sizeText: clamp(1.2em,0.8vw,1.5em);
+    }
+    /* Menu */
+    .navbar-vertical{display: none;}
+    /* Sobre Mim */
+    .content-page{
+        height: unset;
+        padding: var(--navbar) 2em 0 2em;
+    }
+    .content-about p{
+        white-space: unset;
+    }
+    /* Sobre Mim */
+    .content-about{
+        flex-direction: column;
+        align-items: start;
+    }
+    .content-about > figure > img{width: 100%;}
+    /* Valores */
+    .container-itens{
+        flex-direction: column;
+        align-items: center;
+    }
+    .item-card{
+        width: calc(100vw - 15%);
+        text-align: center;
+    }
+    .item-card img {width: clamp(12vh, 10rem, 18vh);}
+    .item-card p {font-size: clamp(1em,1.25rem,1.5em);}
+    /* Hobbies */
+    .container-hobbies{
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+    }
+    .hobbies-card{
+        border-radius: 1.5em;
+        height: unset;
+    }
+    .hobbies-card p{font-size: var(--textCard);}
+    /* Credits */
+    .container-credits p{white-space: unset;}
+}

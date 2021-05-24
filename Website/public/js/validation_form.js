@@ -24,6 +24,10 @@ Validação de Campos
 // Expressões Regulares
 //Expressão Nome
 var nameReg = /^[a-zA-Z ]{1,}$/;
+// Expressão Email
+var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;//Expressão Usuário
+// Expressão Usuário
+var userReg = /^[A-z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
 //Expressão Senha
 var passwordReg = /^(?=.*[0-9]{3})(?=.*[A-Z]{1})(?=.*[a-z]{1})[a-zA-Z0-9]{6,}$/;
 // Validação Nome
@@ -41,27 +45,37 @@ function validate_name(){
 function validate_email(){
     // Variável Input
     var email = ipt_email.value;
-    var validacao = email.indexOf('@') && email.indexOf('.') >= 1;
     // Validação
-    if(validacao >= 1){
+    if(email.match(emailReg)){
         msg_validate_email.innerHTML = '';
     } else {
         msg_validate_email.innerHTML = 'E-mail inválido';
     }
 }
 // Validação Data
-function validate_date(){
-    // Data de Nascimento Usuário
-    var dateUser = +new Date(ipt_date.value);
-    // Calculo Idade
-    // TESTAR COM GET TIME ONDE TIRA 24 HORAS
-    var idade = ((+new Date() - dateUser - 86400000 ) /31557600000);
-    console.log(idade);
+// function validate_date(){
+//     // Data de Nascimento Usuário
+//     var dateUser = +new Date(ipt_date.value);
+//     // Calculo Idade
+//     // TESTAR COM GET TIME ONDE TIRA 24 HORAS
+//     var idade = ((+new Date() - dateUser - 86400000 ) /31557600000);
+//     console.log(idade);
+//     // Validação
+//     if (idade < 10){    
+//         msg_validate_date.innerHTML = 'Você precisa ter pelo menos 10 anos'
+//     } else {
+//         msg_validate_date.innerHTML = ''
+//     }
+// }
+// Validação Usuário
+function validate_user(){
+    // Variável Input
+    var user = ipt_user.value;
     // Validação
-    if (idade < 10){    
-        msg_validate_date.innerHTML = 'Você precisa ter pelo menos 10 anos'
+    if(user.match(userReg)){
+        msg_validate_user.innerHTML = '';
     } else {
-        msg_validate_date.innerHTML = ''
+        msg_validate_user.innerHTML = 'Usuário Inválido';
     }
 }
 // Validação Senha
@@ -72,46 +86,60 @@ function validate_password(){
     if(password.match(passwordReg)){
         msg_validate_password.innerHTML = '';
     } else {
-        msg_validate_password.innerHTML = 'Senha    inválida';
+        msg_validate_password.innerHTML = 'Senha inválida';
     }
 }
-/*-----------------
- Enviar Formulário
-------------------*/
-// function enviar(){
-//     // Variáveis Inputs
-//     var name = ipt_name.value;
-//     var email = ipt_email.value;
-//     var validacao_email = email.indexOf('@') && email.indexOf('.') >= 1;
-//     var dateUser = +new Date(ipt_date.value);
-//     var idade = ((+new Date() - dateUser) /31557600000);
-//     var password = ipt_password.value;
-//     // Validação
-//     if(name.match(nameReg) && validacao_email >=1 && idade >= 18 && password.match(passwordReg)){
-//         // Variáveis
-//         // Escondendo Campos
-//         form_container.style.display = 'none';
-//         form_btn.style.display = 'none';
-//         // Atualizando HTML
-//         form.innerHTML += `
-//         <div class="container-verify-email">
-//         <h1>Verifique sua Conta</h1>
-//         <p>Confira sua caixa de entrada e siga as instruções para
-//         verificar sua conta e ter acesso ao mundo Baalbek.</p>
-//         <img src="imgs/verify_email.svg"/>
-//         </div>`
-//     } else {
-//         msg_valitadate.innerHTML = `Verifique os Campos Preenchidos!`;
-//     }
-// }
-function enviar(){
-        form_container.style.display = 'none';
-        form_btn.style.display = 'none';
-        form.innerHTML += `
-        <div class="container-verify-email">
-        <h1>Verifique sua Conta</h1>
-        <p>Confira sua caixa de entrada e siga as instruções para
-        verificar sua conta e ter acesso ao mundo Baalbek.</p>
-        <img src="imgs/verify_email.svg"/>
-        </div>`
+// Valida Todos os Campos
+function validate_form(){
+    // Valores dos Inputs
+    var name = ipt_name.value;
+    var email = ipt_email.value;
+    var user = ipt_user.value;
+    var password = ipt_password.value;
+    campos = [name,email,user,password]
+    regEx = [nameReg,emailReg,userReg,passwordReg,passwordReg]
+    // Validação
+    for(i=0; i<5;i++){
+        if(campos[i].match(regEx[i])){
+            // Se todos os campos estiverem válidos
+            if(i==3){
+                cadastrar();
+                break
+            }
+        } else{
+            msg_validate_register.innerHTML = `Verifique os Campos preenchidos!`;
+            break
+        }
+    }
+}
+// Válida o Usuário
+function cadastroRealizado(){
+    form_container.style.display = 'none';
+    form_btn.style.display = 'none';
+    form_cadastro.innerHTML += `
+    <div class="container-verify-email">
+    <img src="imgs/verify_email.svg"/>
+    <h1>Cadastrado com sucesso!</h1>
+    <p style="white-space:unset;padding:1em 0;">Sua conta foi criado, clique no botão abaixo<br>
+    para acessar sua conta, e ter acesso ao mundo Baalbek!</p>        
+    <div class="form-btn">
+        <button class="btn"><a href="login.html">Acesse sua conta</a></button>
+    </div>
+    </div>`
+}
+// Cadastra Usuário
+function cadastrar() {
+    var formulario = new URLSearchParams(new FormData(form_cadastro));
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        body: formulario
+    }).then(function (response) {
+        if (response.ok) {
+            cadastroRealizado();
+        } else {
+            msg_validate_register.innerHTML = `Usuário já cadastrado!`;
+        }
+    });
+
+    return false;
 }

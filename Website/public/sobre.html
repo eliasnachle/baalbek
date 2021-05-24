@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quem é o Elias?</title>
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/font.css" />
+  </head>  
+  <body id="body">
+    <!-- Cabeçalho -->
+    <header class="navbar child-navbar">
+      <!-- Hamburger Menu -->
+      <div class="navbar-hamburger" onclick="open_menu()" >
+        <svg fill="#FFF" viewBox="0 0 512 512" width="3em" xmlns="http://www.w3.org/2000/svg">
+          <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"></path>
+        </svg>
+      </div>
+      <!-- Logo Menu -->
+      <div class="navbar-logo">
+        <a href="index.html">
+          <img src="imgs/baalbek_logo.svg" alt="Baalbek Logo" />
+        </a>
+      </div>
+      <!-- Itens Menu -->
+      <nav class="navbar-nav" id="navbar">
+        <!-- Botão Fechar -->
+        <div class="mobile-navar-close" onclick="close_menu()">
+          <svg width="2em" viewBox="0 0 12 12">
+            <g fill="none" fill-rule="evenodd" aria-hidden="true">
+              <path fill="currentColor" d="M9.5 3.205L8.795 2.5 6 5.295 3.205 2.5l-.705.705L5.295 6 2.5 8.795l.705.705L6 6.705 8.795 9.5l.705-.705L6.705 6"></path>
+            </g>
+          </svg>
+        </div>
+        <!-- Logo Menu Mobile -->
+        <div class="mobile-navbar-logo">
+          <a href="index.html">
+            <img src="imgs/baalbek_logo_red.svg" alt="Baalbek Logo" />
+          </a>
+        </div>
+        <!-- Itens Menu -->
+        <ul>
+          <li><a href="sobre.html" class="navbar-link">Quem é o Elias?</a></li>
+          <li><a href="suporte.html" class="navbar-link">Suporte</a></li>
+        </ul>
+        <div class="mobile-navbar-btn btn">
+          <li><a href="login.html" class="btn">Acessar</a></li>
+        </div>
+      </nav>
+      <!-- Botão Acessar-->
+      <div class="navbar-btn">
+        <a href="login.html" class="btn">Acessar</a>
+      </div>
+    </header>
+    <!-- Menu Lateral -->
+    <div class="navbar-vertical">
+      <nav class="nav-vertical">
+        <!-- Links -->
+        <ul>
+          <!-- Sobre mim -->
+          <a href="#section-about" class="nav-link active">
+            <i class="icon-profile nav-links-icon"></i>
+          </a>
+          <!-- Valores -->
+          <a href="#section-values" class="nav-link">
+            <i class="icon-target nav-links-icon"></i>
+          </a>
+          <!-- Hobbies -->
+          <a href="#section-hobbies" class="nav-link">
+            <i class="icon-puzzle nav-links-icon"></i>
+          </a>
+          <!-- Agradecimento -->
+          <a href="#section-credits" class="nav-link">
+            <i class="icon-medal nav-links-icon"></i>
+          </a>
+        </ul>
+      </nav>
+    </div>
+    <!-- Conteúdo do Site -->
+    <!-- Sobre Mim -->
+    <section id="section-about">
+      <div class="content-page content-about">
+        <!-- Imagem -->
+        <figure>
+          <img src="imgs/profile.jpg" alt="Elias Nachle" />
+        </figure>
+        <!-- Artigo -->
+        <article>
+          <!-- Titulo -->
+          <h1 class="section-title">
+          Elias<br/>Nachle</h1>
+          <!-- Texto -->
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.</p>
+        </article>        
+      </div>
+    </section>
+    <!-- Valores -->
+    <section id="section-values">
+      <div class="content-page content-values">
+        <!-- Titulo -->
+        <h1 class="section-title">Valores</h1>
+        <!-- Itens -->
+        <div class="container-itens">
+          <!-- Empatia -->
+          <div class="item-card">
+            <!-- Artigo -->
+            <article>
+            <!-- Icone -->
+              <figure>
+                <img src="icons/empathy.svg" alt="Empatia" />
+              </figure>            
+              <!-- Titulo -->
+              <h2>Empatia</h2>
+              <!-- Texto -->
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard.</p>
+            </article>
+          </div>
+          <!-- Honestidade -->
+          <div class="item-card">
+            <!-- Artigo -->
+            <article>
+            <!-- Icone -->
+              <figure>
+                <img src="icons/holding-hands.svg" alt="Honestidade" />
+              </figure>            
+              <!-- Titulo -->
+              <h2 class="teste">Honestidade</h2>
+              <!-- Texto -->
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard.</p>
+            </article>
+          </div>
+          <!-- Honra -->
+          <div class="item-card">
+            <!-- Artigo -->
+            <article>
+              <!-- Icone -->
+              <figure>
+                <img src="icons/medal.svg" alt="Honra" />
+              </figure>
+              <!-- Titulo -->
+              <h2>Honra</h2>
+              <!-- Texto -->
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard.</p>
+            </article>
+          </div>
+        </div>        
+      </div>
+    </section>
+    <!-- Hobbies -->
+    <section id="section-hobbies">
+      <div class="content-page content-hobbies">
+      <!-- Titulo -->
+      <h1 class="section-title">Hobbies</h1>     
+        <!-- Itens  -->
+        <div class="container-hobbies">
+          <!-- Filmes -->
+          <div class="item-card hobbies-card">
+            <article>
+              <!-- Icone -->
+              <figure>
+                <img src="icons/cinema.svg" alt="Filmes e Séries">
+              </figure>
+              <!-- Texto -->
+              <h2>Filmes</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing
+              and typesetting industry.</p>
+            </article>
+          </div>
+          <!-- Muay Thai -->
+          <div class="item-card hobbies-card">
+            <article>
+              <!-- Icone -->
+              <figure>
+                <img src="icons/muay-thai.svg" alt="Filmes e Séries">
+              </figure> 
+              <!-- Texto -->              
+              <h2>Muay Thai</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing
+              and typesetting industry.</p>
+            </article>                       
+          </div>
+          <!-- Cozinhar -->
+          <div class="item-card hobbies-card">
+            <article>
+              <!-- Icone -->
+              <figure>
+                <img src="icons/cooking.svg" alt="Filmes e Séries">
+              </figure> 
+              <!-- Texto -->              
+              <h2>Cozinhar</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing
+              and typesetting industry.</p>
+            </article>                       
+          </div>                    
+      </div>
+    </div>
+    </section>
+    <!-- Agradecimento -->
+    <section id="section-credits">
+      <div class="content-page content-credits">
+        <!-- Titulo -->
+        <h1 class="section-title">Agradecimento</h1>    
+          <!-- Artigo -->
+          <article class="container-credits">
+            <!-- Figura -->
+            <figure>
+              <img src="icons/bandtec.svg">
+            </figure>
+            <!-- Texto -->
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type
+            specimen book. It has survived not only five centuries.</p>
+          </article>
+        </section>  
+      </div>  
+  </body>
+  <script src="js/menu.js"></script>
+</html>

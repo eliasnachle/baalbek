@@ -17,7 +17,7 @@
         <!-- Conteúdo Formulário -->
         <section class="content-form">
           <!-- Fomrulário -->
-          <form id="form">
+          <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
             <div class="form-logo">
               <figure>
                 <a href="index.html"><img src="imgs/baalbek_logo_red.svg" alt="Logotipo Baalbek"/></a>
@@ -31,37 +31,45 @@
               <!-- Campo Nome -->
               <div class="form-input" id="teste">
                 <label>Nome:</label>
-                <input type="text" placeholder="Digite seu nome"  id="ipt_name" onkeyup="validate_name()"/>
+                <input type="text" placeholder="Digite seu nome"  id="ipt_name" name="nome" onkeyup="validate_name()"/>
                 <!-- Mensagem de Validação -->
                 <span class="msg-validate" id="msg_validate_name"></span>
               </div>                
               <!-- Campo E-mail -->
               <div class="form-input">
                 <label>E-mail:</label>
-                <input type="text" placeholder="Digite seu e-mail" id="ipt_email" onkeyup="validate_email()"/>
+                <input type="text" placeholder="Digite seu e-mail" id="ipt_email" name="email" onkeyup="validate_email()"/>
                 <!-- Mensagem de Validação -->
                 <span class="msg-validate" id="msg_validate_email"></span>
               </div>                
               <!-- Campo Data de Nascimento -->
-              <div class="form-input">
+              <!-- <div class="form-input">
                 <label>Data de Nascimento:</label>
-                <input type="date" id="ipt_date" onkeyup="validate_date()" />
+                <input type="date" id="ipt_date" name="dtNascimento" onkeyup="validate_date()" /> -->
                 <!-- Mensagem de Validação -->
-                <span class="msg-validate" id="msg_validate_date"></span>
-              </div>
+                <!-- <span class="msg-validate" id="msg_validate_date"></span>
+              </div> -->
+              <!-- Campo Usuário -->
+              <div class="form-input">
+                <label>Usuário:</label>
+                <input type="text" placeholder="Digite seu usuário" name="login" id="ipt_user" onkeyup="validate_user()"/>
+                <!-- Mensagem de Validação -->
+                <span class="msg-validate" id="msg_validate_user"></span>
+              </div>              
               <!-- Campo Senha -->
               <div class="form-input">
                 <label>Senha:</label>
-                <input type="text" placeholder="Digite sua senha" id="ipt_password" onkeyup="validate_password()"/>
+                <input type="text" placeholder="Digite sua senha" name="senha" id="ipt_password" onkeyup="validate_password()"/>
                 <!-- Mensagem de Validação -->
                 <span class="msg-validate" id="msg_validate_password"></span>
               </div>
+              <span class="msg-validate" id="msg_validate_register"></span>
             </div>
             <!-- Botão Enviar -->
             <div class="form-btn" id="form_btn">
-              <button type="button" onclick="enviar()"><a>Cadastrar</a></button>
+              <button id="btn_entrar" value="Cadastrar" type="button" onclick="validate_form()"><a>Cadastrar</a></button>
               <!-- Msg Registrar-se -->
-              <p>Já é cadastrado? <a href="signin.html">Faça login</a></p>
+              <p>Já é cadastrado? <a href="login.html">Faça login</a></p>
             </div>
             <!-- Usuário cadastrado -->
             <div id="container-verify-email"></div>
@@ -70,3 +78,6 @@
       </main>    
 </body>
 </html>
+<script>
+
+</script>
