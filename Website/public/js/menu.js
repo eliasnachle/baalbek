@@ -10,10 +10,10 @@ function close_menu(){
 }
 
 // // Link Menu
-// const linkColor = document.querySelectorAll('.nav-link');   
-// function colorLink(){
-//     linkColor.forEach(i => i.classList.remove('active'));
-//     this.classList.add('active');
-// }
+const linkColor = document.querySelectorAll('.nav-link');   
+function colorLink(){
+    linkColor.forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+}
 
-// linkColor.forEach(i => i.addEventListener('click', colorLink));
+linkColor.forEach(i => i.addEventListener('click', colorLink));

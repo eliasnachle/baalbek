@@ -23,7 +23,7 @@ Validação de Campos
 -------------------*/
 // Expressões Regulares
 //Expressão Nome
-var nameReg = /^[a-zA-Z ]{1,}$/;
+var nameReg = /^[À-úA-z ]{3,}$/;
 // Expressão Email
 var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;//Expressão Usuário
 // Expressão Usuário
@@ -97,18 +97,18 @@ function validate_form(){
     var user = ipt_user.value;
     var password = ipt_password.value;
     campos = [name,email,user,password]
-    regEx = [nameReg,emailReg,userReg,passwordReg,passwordReg]
+    regEx = [nameReg,emailReg,userReg,passwordReg]
     // Validação
     for(i=0; i<5;i++){
         if(campos[i].match(regEx[i])){
             // Se todos os campos estiverem válidos
             if(i==3){
                 cadastrar();
-                break
+                break;
             }
         } else{
             msg_validate_register.innerHTML = `Verifique os Campos preenchidos!`;
-            break
+            break;
         }
     }
 }

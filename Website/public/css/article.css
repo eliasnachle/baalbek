@@ -1,0 +1,47 @@
+/*----------------------
+Configurações da Página
+---------------------- */
+:root{
+    --titleArticle: clamp(3em,4vw,5em);
+    --textArticle: clamp(18px,1.75vw,20px);
+}
+/*----------
+Item Principal
+----------- */
+.content-article{
+    display: flex;
+    justify-content: center;
+    padding: 1em 2em 1em calc(2em + var(--vertical-menu));
+}
+.container-article{
+    color: var(--white);
+    max-width: 920px;
+}
+/* SubTitulos */
+.container-article h2{
+    font-size: var(--titleArticle);
+    font-weight: 800;
+    line-height: 1.15em;
+    padding-top: 0.5em;
+    padding-bottom: 0.25em;
+}
+/* Texto */
+.container-article p{
+    font-size: var(--textArticle);
+    line-height: 2.25em;
+}
+/*-----------
+Reponsividade 
+------------*/
+/* 1080px */
+@media screen and (max-width:1080px){
+    .content-article{
+        padding: 1em 2em 1em calc(2em + var(--mobile-vertical-menu));
+    }
+}
+/* 690px */
+@media screen and (max-width:690px){
+    .content-article{
+        padding: 1em 2em 1em 2em;
+    }
+}
