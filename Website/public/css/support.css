@@ -196,6 +196,11 @@ Formulário
 }
 .form-input input:focus{border: 1.5px solid var(--primary);}
 .form-input textarea:focus{border: 1.5px solid var(--primary);}
+/* Mensagem de Validação */
+.msg-validate{
+    display: block;
+    color: var(--primary);
+}
 /* Botão */
 .form-btn button{
     background: var(--primary);

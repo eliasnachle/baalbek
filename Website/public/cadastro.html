@@ -29,7 +29,7 @@
             </div>
             <div class="form-container" id="form_container">
               <!-- Campo Nome -->
-              <div class="form-input" id="teste">
+              <div class="form-input">
                 <label>Nome:</label>
                 <input type="text" placeholder="Digite seu nome"  id="ipt_name" name="nome" onkeyup="validate_name()"/>
                 <!-- Mensagem de Validação -->
@@ -42,32 +42,25 @@
                 <!-- Mensagem de Validação -->
                 <span class="msg-validate" id="msg_validate_email"></span>
               </div>                
-              <!-- Campo Data de Nascimento -->
-              <!-- <div class="form-input">
-                <label>Data de Nascimento:</label>
-                <input type="date" id="ipt_date" name="dtNascimento" onkeyup="validate_date()" /> -->
-                <!-- Mensagem de Validação -->
-                <!-- <span class="msg-validate" id="msg_validate_date"></span>
-              </div> -->
               <!-- Campo Usuário -->
               <div class="form-input">
-                <label>Usuário:</label>
-                <input type="text" placeholder="Digite seu usuário" name="login" id="ipt_user" onkeyup="validate_user()"/>
+                <label>Login:</label>
+                <input type="text" placeholder="Digite seu login" name="login" id="ipt_login" onkeyup="validate_login()"/>
                 <!-- Mensagem de Validação -->
-                <span class="msg-validate" id="msg_validate_user"></span>
+                <span class="msg-validate" id="msg_validate_login"></span>
               </div>              
               <!-- Campo Senha -->
               <div class="form-input">
                 <label>Senha:</label>
                 <input type="text" placeholder="Digite sua senha" name="senha" id="ipt_password" onkeyup="validate_password()"/>
                 <!-- Mensagem de Validação -->
-                <span class="msg-validate" id="msg_validate_password"></span>
+                <span class="msg-validate" id="msg_validate_password"></span> 
               </div>
               <span class="msg-validate" id="msg_validate_register"></span>
             </div>
             <!-- Botão Enviar -->
             <div class="form-btn" id="form_btn">
-              <button id="btn_entrar" value="Cadastrar" type="button" onclick="validate_form()"><a>Cadastrar</a></button>
+              <button id="btn_entrar" value="Cadastrar" type="button" onclick="validate_form_register()"><a>Cadastrar</a></button>
               <!-- Msg Registrar-se -->
               <p>Já é cadastrado? <a href="login.html">Faça login</a></p>
             </div>
@@ -78,6 +71,3 @@
       </main>    
 </body>
 </html>
-<script>
-
-</script>

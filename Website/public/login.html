@@ -30,17 +30,22 @@
             <!-- Campo Login -->
             <div class="form-input">
               <label>Login:</label>
-              <input name="login" type="text" placeholder="Digite seu login" />
+              <input type="text" placeholder="Digite seu login" name="login" id="ipt_login" onkeyup="validate_login()"/>
+              <!-- Mensagem de Validação -->
+              <span class="msg-validate" id="msg_validate_login"></span>
             </div>
             <!-- Campo Senha -->
             <div class="form-input">
               <label>Senha:</label>
-              <input name="senha" type="password" placeholder="Digite sua senha" />
+              <input type="password" placeholder="Digite sua senha" name="senha" id="ipt_password" onkeyup="validate_password()"/>
+              <!-- Mensagem de Validação -->
+              <span class="msg-validate" id="msg_validate_password"></span>
             </div>
+            <span class="msg-validate" id="msg_validate_form_login"></span>
           </div>
           <!-- Botão Enviar -->
           <div class="form-btn">
-            <button id="btn_entrar">Entrar</button>
+            <button id="btn_entrar" type="button" onclick="validate_form_login()">Entrar</button>
             <!-- Msg Registrar-se -->
             <p>Não é cadastrado? <a href="cadastro.html">Cadastre-se</a></p>
           </div>
@@ -49,28 +54,3 @@
     </main>
   </body>
 </html>
-<script>
-function entrar() {
-        var formulario = new URLSearchParams(new FormData(form_login));
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            body: formulario
-        }).then(resposta => {
-
-            if (resposta.ok) {
-
-                resposta.json().then(json => {
-
-                    sessionStorage.login_usuario_meuapp = json.login;
-                    sessionStorage.nome_usuario_meuapp = json.nome;
-
-                    window.location.href = 'panel.html';
-                });
-
-            } else {
-                console.log('Erro de login!');
-            }
-        });
-        return false;
-    }
-</script>

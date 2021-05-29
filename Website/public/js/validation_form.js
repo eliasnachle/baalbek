@@ -26,8 +26,8 @@ Validação de Campos
 var nameReg = /^[À-úA-z ]{3,}$/;
 // Expressão Email
 var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;//Expressão Usuário
-// Expressão Usuário
-var userReg = /^[A-z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
+// Expressão Login
+var loginReg = /^[A-z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
 //Expressão Senha
 var passwordReg = /^(?=.*[0-9]{3})(?=.*[A-Z]{1})(?=.*[a-z]{1})[a-zA-Z0-9]{6,}$/;
 // Validação Nome
@@ -52,30 +52,15 @@ function validate_email(){
         msg_validate_email.innerHTML = 'E-mail inválido';
     }
 }
-// Validação Data
-// function validate_date(){
-//     // Data de Nascimento Usuário
-//     var dateUser = +new Date(ipt_date.value);
-//     // Calculo Idade
-//     // TESTAR COM GET TIME ONDE TIRA 24 HORAS
-//     var idade = ((+new Date() - dateUser - 86400000 ) /31557600000);
-//     console.log(idade);
-//     // Validação
-//     if (idade < 10){    
-//         msg_validate_date.innerHTML = 'Você precisa ter pelo menos 10 anos'
-//     } else {
-//         msg_validate_date.innerHTML = ''
-//     }
-// }
-// Validação Usuário
-function validate_user(){
+// Validação Login
+function validate_login(){
     // Variável Input
-    var user = ipt_user.value;
+    var login = ipt_login.value;
     // Validação
-    if(user.match(userReg)){
-        msg_validate_user.innerHTML = '';
+    if(login.match(loginReg)){
+        msg_validate_login.innerHTML = '';
     } else {
-        msg_validate_user.innerHTML = 'Usuário Inválido';
+        msg_validate_login.innerHTML = 'Login Inválido';
     }
 }
 // Validação Senha
@@ -90,14 +75,14 @@ function validate_password(){
     }
 }
 // Valida Todos os Campos
-function validate_form(){
+function validate_form_register(){
     // Valores dos Inputs
     var name = ipt_name.value;
     var email = ipt_email.value;
-    var user = ipt_user.value;
+    var login = ipt_login.value;
     var password = ipt_password.value;
-    campos = [name,email,user,password]
-    regEx = [nameReg,emailReg,userReg,passwordReg]
+    campos = [name,email,login,password]
+    regEx = [nameReg,emailReg,loginReg,passwordReg]
     // Validação
     for(i=0; i<5;i++){
         if(campos[i].match(regEx[i])){
@@ -141,5 +126,52 @@ function cadastrar() {
         }
     });
 
+    return false;
+}
+
+// Valida Login Usuário
+function validate_form_login(){
+    // Valores dos Inputs
+    var login = ipt_login.value;
+    var password = ipt_password.value;
+    campos = [login,password]
+    regEx = [loginReg,passwordReg]
+    // Validação
+    for(i=0; i<2;i++){
+        if(campos[i].match(regEx[i])){
+            // Se todos os campos estiverem válidos
+            if(i==1){
+                entrar();
+                break;
+            }
+        } else{
+            msg_validate_form_login.innerHTML = `Login inválido! Verifique os campos`;
+            break;
+        }
+    }
+}
+
+// Loga o usuário
+function entrar() {
+    var formulario = new URLSearchParams(new FormData(form_login));
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        body: formulario
+    }).then(resposta => {
+
+        if (resposta.ok) {
+
+            resposta.json().then(json => {
+
+                sessionStorage.login_usuario_meuapp = json.login;
+                sessionStorage.nome_usuario_meuapp = json.nome;
+
+                window.location.href = 'panel.html';
+            });
+
+        } else {
+            console.log('Erro de login!');
+        }
+    });
     return false;
 }

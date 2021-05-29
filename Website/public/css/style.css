@@ -90,10 +90,16 @@ Itens
     padding: 0 2em;
 }
 .container-item{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* border: 1px solid white; */
+    display: grid;    
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    align-items: center;
     grid-gap: 10em;
     padding: 6em 0;
+}
+.container-itens{
+    max-width: 1580px;
 }
 .article-item h1{
     font-size: var(--titleSize);
@@ -107,6 +113,11 @@ Itens
     line-height: 30px;
     margin: 1em 0;
     white-space: pre-line;
+}
+.figure-item{
+    width: clamp(20vw,35rem,40vw);
+    /* max-width: 100%;
+    height: auto; */
 }
 /*------
 Rodapé
@@ -177,6 +188,7 @@ Responsividade
     .container-item{display: block;padding: 0;grid-gap:0;}
     .article-item h1,.article-item p{white-space: unset;}  
     .article-item p{margin: 0.25em 0 1em 0;}
+    .figure-item{width: 100%;}
     .reverse {display: flex;flex-direction: column-reverse;}
     /* Rodapé */
     .content-footer{

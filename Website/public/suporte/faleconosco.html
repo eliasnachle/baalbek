@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/navbar.css" />
     <link rel="stylesheet" href="../css/support.css">
     <script src="../js/menu.js"></script>
+    <script src="../js/validation_support_form.js"></script>
   </head>
   <body id="body">
     <!-- Cabeçalho -->
@@ -70,24 +71,38 @@
         <h1 class="title">Fale Conosco</h1>
           <!-- Formúlario -->
           <form class="form">
-            <!-- Campo Nome -->
+            <!-- Campo Nome --> 
             <div class="form-input">
                   <label>Nome:</label>
-                  <input name="nome" type="text" placeholder="Digite seu nome" />
+                  <input type="text" placeholder="Digite seu nome" id="ipt_name" name="nome" onkeyup="validate_name()" />
+                  <!-- Mensagem de Validação -->
+                  <span class="msg-validate" id="msg_validate_name"></span>
+            </div>
+            <!-- Campo E-mail -->
+            <div class="form-input">
+                  <label>Email:</label>
+                  <input type="text" placeholder="Digite o seu email" id="ipt_email" name="email" onkeyup="validate_email()"/>
+                  <!-- Mensagem de Validação -->
+                  <span class="msg-validate" id="msg_validate_email"></span>
             </div>
             <!-- Campo Assunto -->
             <div class="form-input">
                   <label>Assunto:</label>
-                  <input name="senha" type="text" placeholder="Digite o assunto" />
+                  <input type="text" placeholder="Digite o assunto" id="ipt_subject" name="assunto" onkeyup="validate_subject()"/>
+                  <!-- Mensagem de Validação -->
+                  <span class="msg-validate" id="msg_validate_subject"></span>                  
             </div>
             <!-- Campo Mensagem -->
             <div class="form-input">
                   <label>Mensagem:</label>
-                  <textarea name="mensagem" placeholder="Digite o assunto" cols="30" rows="10"></textarea>
+                  <textarea placeholder="Digite o assunto" cols="30" rows="10" id="ipt_message" name="mensagem" minlength="10" maxlength="500" onkeyup="validate_message()"></textarea>
+                  <!-- Mensagem de Validação -->
+                  <span class="msg-validate" id="msg_validate_message"></span>
             </div>
             <!-- Botão Enviar -->
             <div class="form-btn">
-                  <button id="btn_entrar">Entrar</button>
+                  <button id="btn_entrar" type="button" onclick="validate_form()">Entrar</button>
+                  <span class="msg-validate" id="msg_validate_form"></span>
             </div>              
           </form>
         </div>        
@@ -102,27 +117,24 @@
           <figure>
             <img src="../imgs/baalbek_logo_red.svg">
           </figure>
-          <p>Somos uma empresa jovem, 
-          voltada para o agronegócio,
-          especificamente para o cult,
-          uma fruta exótica e requisi. 
-          Fundada com o intuito de di
-          a tecnologia em todos os me
-          possíveis enquanto auxiliam
-          um setor tão importante par</p>
+          <p>A Baalbek é uma plataforma
+          única, onde compartilho minhas
+          teorias, críticas sobre filmes,
+          séries e animes. Crie uma conta 
+          agora e entre nesse mundo!</p>
         </aritcle>
         <!-- Itens-->
         <ul class="container-footer-links">
-          <li class="footer-title"><a href="#">Quem é o Elias?</a></li>
-          <li class="footer-link"><a href="#">História</a></li>
-          <li class="footer-link"><a href="#">Aptidões</a></li>
-          <li class="footer-link"><a href="#">Hobbies</a></li>
+          <li class="footer-title"><a href="../sobre.html">Quem é o Elias?</a></li>
+          <li class="footer-link"><a href="../sobre.html#section-about">História</a></li>
+          <li class="footer-link"><a href="../sobre.html#section-hobbies">Hobbies</a></li>
+          <li class="footer-link"><a href="../sobre.html#section-about">Valores</a></li>
         </ul>
         <ul class="container-footer-links">
-          <li class="footer-title"><a href="#">Fale Conosco</a></li>
-          <li class="footer-link"><a href="#">Dúvidas</a></li>
-          <li class="footer-link"><a href="#">Sugestões</a></li>
-          <li class="footer-link"><a href="#">Contato</a></li>
+          <li class="footer-title"><a href="../suporte.html">Fale Conosco</a></li>
+          <li class="footer-link"><a href="plataforma.html">Como utlizar?</a></li>
+          <li class="footer-link"><a href="conexao.html">Problemas com conexão</a></li>
+          <li class="footer-link"><a href="faleconosco.html">Contato</a></li>
         </ul>
       </div>      
       <!-- Copyright -->

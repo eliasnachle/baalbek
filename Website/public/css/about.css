@@ -230,9 +230,11 @@ Agradecimento
     width: 20em;
 }
 .container-credits p{
-    color: var(--white);
     font-size: var(--sizeText);
-    line-height: 2em;
+    letter-spacing: 0.25px;
+    line-height: 2.1em;
+    text-align: center;
+    color: var(--white);
     white-space: pre-line;
 }
 /*------------

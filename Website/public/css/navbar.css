@@ -40,6 +40,9 @@ Menu
 .navbar-link:hover{
     color: var(--primary);
 }
+.aa{
+    font-size: 0.1em !important;
+}
 /* Logo Menu */
 .navbar-logo {
   width: 10em;
