@@ -360,15 +360,11 @@ Responsividade
         .content-itens {padding: 2em 1em;}
         .container-item{width: 100%;}
         .item-img{
-            height: 20em;
+            height: auto;
             width: 100%;
             border-radius: 15px;
-            background-image: url('../imgs/item_1.jpeg');
-            background-position: center;
-            background-size: cover;
             filter: brightness(0.85);
         }
-        .item-img img{display: none;}
         .item-text {padding: 1em 0;}
         /* Menu Mobile */
         .navbar-vertical{width: calc(var(--mobile-vertical-menu) - 2.5em);}
