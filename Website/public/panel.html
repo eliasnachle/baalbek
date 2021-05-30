@@ -7,9 +7,11 @@
     <title>Baalbek</title>
     <link rel="stylesheet" href="css/painel.css" />
     <link rel="stylesheet" href="css/font.css">
+    <script src="funcoes.js"></script>
+    <script src="js/publicacoes.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
   </head>
-  <body>
+  <body onload="obterPublicacoes()">
     <!-- Header Usuário -->
     <header class="header">
       <!-- Usuário -->
@@ -25,7 +27,7 @@
         </figure>
         <!-- Nome Usuário -->
         <div class="user-name">
-          <span>Elias Nachle</span>
+          <span id="b_usuario"></span>
         </div>
       </div>
     </header>
@@ -52,11 +54,11 @@
             <span class="nav-links-name">Teorias</span>
           </a>
           <!-- Encerrar Sessão Mobile -->
-          <a href="#" class="nav-link mobile-link-logout">
+          <a href="login.html" class="nav-link mobile-link-logout" onclick="logoff()">
             <i class="bi bi-box-arrow-right nav-links-icon"></i>
             <span>Encerrar</span>
         </ul>
-        <a href="#" class="nav-link link-logout">
+        <a href="login.html" class="nav-link link-logout" onclick="logoff()">
           <i class="bi bi-box-arrow-right nav-links-icon"></i>
           <span>Encerrar</span>          
         </a>
@@ -194,4 +196,3 @@
     </section>
   </body>
 </html>
-

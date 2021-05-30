@@ -263,6 +263,7 @@ Conteúdo
     flex-flow: wrap;
 }
 .container-item{
+    text-decoration: none;
     background: var(--black);
     width: 30em;
     border-radius: 15px;

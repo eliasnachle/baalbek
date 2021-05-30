@@ -29,7 +29,7 @@ var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;//Expressão Us
 // Expressão Login
 var loginReg = /^[A-z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
 //Expressão Senha
-var passwordReg = /^(?=.*[0-9]{3})(?=.*[A-Z]{1})(?=.*[a-z]{1})[a-zA-Z0-9]{6,}$/;
+var passwordReg = /^(?=.*[0-9]{3})(?=.*[A-Z]{1})(?=.*[a-z]{1})[a-zA-Z0-9]{6,30}$/;
 // Validação Nome
 function validate_name(){
     // Variável Input
@@ -145,7 +145,7 @@ function validate_form_login(){
                 break;
             }
         } else{
-            msg_validate_form_login.innerHTML = `Login inválido! Verifique os campos`;
+            msg_validate_form_login.innerHTML = `Login ou senha inválido! Verifique os campos`;
             break;
         }
     }

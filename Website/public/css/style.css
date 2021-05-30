@@ -89,7 +89,7 @@ Itens
     align-items: center;
     padding: 0 2em;
 }
-.container-item{
+.container-item a{
     /* border: 1px solid white; */
     display: grid;    
     grid-template-columns: repeat(2, auto);
