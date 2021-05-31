@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baalbek</title>
+    <link rel="stylesheet" href="css/painel.css" />
+    <link rel="stylesheet" href="css/font.css">
+    <script src="js/publicacoes.js"></script>
+    <script src="funcoes.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
+  </head>
+  <body onload="obterDados()">
+    <!-- Header Usuário -->
+    <header class="header">
+      <!-- Usuário -->
+      <div class="header-user">
+        <!-- Foto de Perfil -->
+        <figure class="user-icon">
+          <img src="imgs/profile.png" alt="Foto de Perfil" />
+        </figure>
+        <!-- Nome Usuário -->
+        <div class="user-name">
+          <span id="b_usuario"></span>
+        </div>
+      </div>
+    </header>
+    <!-- Menu Lateral -->
+    <section class="navbar-vertical">
+      <!-- Logo Menu -->
+      <div class="navbar-logo">
+        <a class="desktop-logo" href="resenhas.html"><img src="imgs/baalbek_logo_red.svg"/></a>
+        <a class="mobile-logo" href="resenhas.html"><img src="imgs/baalbek_logo_small.svg"/></a>
+      </div>
+      <!-- Foto de Perfil Mobile -->
+      <figure class="user-icon mobile-user-icon">
+        <img src="imgs/profile.png" alt="Foto de Perfil" />
+      </figure>
+      <!-- Links -->
+      <nav class="nav-vertical">
+        <ul>
+          <a href="resenhas.html" class="nav-link active">
+            <i class="icon-theory nav-links-icon"></i>
+            <span class="nav-links-name active-span">Resenhas</span>
+          </a>
+          <a href="teorias.html" class="nav-link">
+            <i class="icon-movies nav-links-icon"></i>
+            <span class="nav-links-name">Teorias</span>
+          </a>
+          <!-- Encerrar Sessão Mobile -->
+          <a href="login.html" class="nav-link mobile-link-logout" onclick="logoff()">
+            <i class="bi bi-box-arrow-right nav-links-icon"></i>
+            <span>Encerrar</span>
+        </ul>
+        <a href="login.html" class="nav-link link-logout" onclick="logoff()">
+          <i class="bi bi-box-arrow-right nav-links-icon"></i>
+          <span>Encerrar</span>          
+        </a>
+      </nav>
+    </section>
+    <!-- Item Principal  -->
+    <section class="content-principal">
+        <div class="container-principal" id="testando">
+            <article class="principal-article">
+                <!-- Titulo -->
+                <h1></h1>
+                <!-- Autor/Nota -->
+                <div class="principal-author">
+                    <img src="imgs/profile.png" alt="Foto Autor">
+                    <span class="span-author"></span>
+                    <span class="span-rate"><i class="bi bi-star-fill"></i></span>
+                </div>
+                <!-- Descrição -->
+                <p></p>
+                <!-- Botão -->
+                <button class="btn principal-btn">Visualizar</button>
+            </article>
+        </div>
+    </section>
+    <!-- Conteúdo -->    
+    <form class="content-itens" id="content_itens">
+    </form>
+  </body>
+</html>
+<script>
+// Obtem os dados
+function obterDados(){
+  obterPublicacoes();
+  var tituloArtigo = sessionStorage.titulo;
+  var notaArtigo = sessionStorage.nota;
+  var descricaoArtigo = sessionStorage.descricao;
+  // Imagem do Artigo
+  // Titulo
+  document.querySelector(`.principal-article > h1`).innerHTML = tituloArtigo;
+  // Nota
+  document.querySelector(`.principal-article > .principal-author > .span-rate`).innerHTML = `<i class="bi bi-star-fill"></i> ${notaArtigo}`;
+  // Descrição
+  document.querySelector(`.principal-article > p`).innerHTML = `${descricaoArtigo}`;
+}  
+</script>

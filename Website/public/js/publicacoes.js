@@ -70,7 +70,7 @@ function atualizarFeed(publicacoes) {
 
 // Pega as publicações
 function obterPublicacoes() {
-  // verificar_autenticacao();
+  verificar_autenticacao();
   // aguardar();
   fetch("/publicacoes")
     .then((resposta) => {
@@ -114,19 +114,4 @@ function obterID(obj,fkPublicacao){
   sessionStorage.setItem('descricao', `${descricao}`);      
   // Redireciona
   window.location.href = 'artigo.html';
-}
-
-// Obtem os dados
-function obterDados(){
-  obterPublicacoes();
-  var tituloArtigo = sessionStorage.titulo;
-  var notaArtigo = sessionStorage.nota;
-  var descricaoArtigo = sessionStorage.descricao;
-  // Imagem do Artigo
-  // Titulo
-  document.querySelector(`.principal-article > h1`).innerHTML = tituloArtigo;
-  // Nota
-  document.querySelector(`.principal-article > .principal-author > .span-rate`).innerHTML = `<i class="bi bi-star-fill"></i> ${notaArtigo}`;
-  // Descrição
-  document.querySelector(`.principal-article > p`).innerHTML = `${descricaoArtigo}`;
 }
