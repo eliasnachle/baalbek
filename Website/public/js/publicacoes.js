@@ -1,7 +1,8 @@
 function atualizarFeedRandom(publicacoes){
   var feed = document.getElementById("testando");
   feed.innerHTML = "";
-  for (let i = 0; i<1; i++) {
+  var random = parseInt(Math.random () *5) + 1;
+  for (let i = 1; i<=random; i++) {
     var publicacao = publicacoes[i];
     // Conteúdo Item
     // Estilizando HTML
