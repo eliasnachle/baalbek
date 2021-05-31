@@ -7,20 +7,15 @@
     <title>Baalbek</title>
     <link rel="stylesheet" href="css/painel.css" />
     <link rel="stylesheet" href="css/font.css">
-    <script src="funcoes.js"></script>
     <script src="js/publicacoes.js"></script>
+    <script src="funcoes.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
   </head>
-  <body onload="obterPublicacoes()">
+  <body onload="obterDados()">
     <!-- Header Usuário -->
     <header class="header">
       <!-- Usuário -->
       <div class="header-user">
-        <!-- Notificações -->
-        <div class="user-notifications">
-          <span class="notifications">3</span>
-          <i class="bi bi-bell"></i>
-        </div>
         <!-- Foto de Perfil -->
         <figure class="user-icon">
           <img src="imgs/profile.png" alt="Foto de Perfil" />
@@ -45,11 +40,11 @@
       <!-- Links -->
       <nav class="nav-vertical">
         <ul>
-          <a href="#.html" class="nav-link active">
+          <a href="resenhas.html" class="nav-link active">
             <i class="icon-theory nav-links-icon"></i>
             <span class="nav-links-name active-span">Resenhas</span>
           </a>
-          <a href="#.html" class="nav-link">
+          <a href="teorias.html" class="nav-link">
             <i class="icon-movies nav-links-icon"></i>
             <span class="nav-links-name">Teorias</span>
           </a>
@@ -66,53 +61,25 @@
     </section>
     <!-- Item Principal  -->
     <section class="content-principal">
-        <div class="container-principal">
+        <div class="container-principal" id="testando">
             <article class="principal-article">
-                <!-- Tags -->
-                <div class="tags">
-                  <span class="tag action">Ação</span>
-                  <span class="tag adventure">Aventura</span>
-                  <span class="tag marvel">Marvel</span>
-                </div>
                 <!-- Titulo -->
-                <h1>Resenha — Pantera Negra
-                (sem spoilers)</h1>
+                <h1></h1>
                 <!-- Autor/Nota -->
                 <div class="principal-author">
                     <img src="imgs/profile.png" alt="Foto Autor">
-                    <span class="span-author">Elias Nachle</span>
-                    <span class="span-rate"><i class="bi bi-star-fill"></i> 9.5</span>
+                    <span class="span-author"></span>
+                    <span class="span-rate"><i class="bi bi-star-fill"></i></span>
                 </div>
                 <!-- Descrição -->
-                <p>A icônica introdução da música "O Ciclo da Vida" de "O Rei Leão", 
-                traduzida, diz "Lá vem um leão.</p>
+                <p></p>
                 <!-- Botão -->
                 <button class="btn principal-btn">Visualizar</button>
             </article>
         </div>
     </section>
-    <!-- Conteúdo -->
-    <section class="content-itens" id="content_itens">
-    </section>
-    <section class="content-itens">
-      <div onclick="teste()">
-        <!-- Imagem -->
-      <figure class="item-img">
-        <img src="imgs/hunterxhunter.jpg">
-      </figure>
-      <!-- Texto -->
-      <article class="item-text">
-        <!-- Titulo -->
-        <h3>aaaa <br>
-        aaaaaaa</h3>
-        <!-- Autor -->
-        <div class="principal-author">
-          <img src="imgs/profile.png" alt="Foto Autor">
-          <span class="span-author">aaa</span>
-          <span class="span-rate"><i class="bi bi-star-fill"></i> 123</span>
-        </div>
-      </article>
-      </div>
-    </section>
+    <!-- Conteúdo -->    
+    <form class="content-itens" id="content_itens">
+    </form>
   </body>
 </html>

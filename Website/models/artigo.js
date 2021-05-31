@@ -32,6 +32,11 @@ module.exports = (sequelize, DataTypes) => {
             field: 'p2',
             type: DataTypes.TEXT,
             allowNull: false
+        },
+        fkPublicacao: {
+            field: 'fkPublicacao',
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
 	}, 
 	{

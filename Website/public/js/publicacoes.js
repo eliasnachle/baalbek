@@ -1,40 +1,49 @@
-    // function publicar() {
-    //     console.log("entrei!")
-    //     aguardar();
-    //     var formulario = new URLSearchParams(new FormData(form_publicar));
-    //     var idUsuario = sessionStorage.id_usuario_meuapp;
-    //     fetch(`/publicacoes/publicar/${idUsuario}`, {
-    //         method: "POST",
-    //         body: formulario
-    //     }).then(resposta => {
-
-    //         if (resposta.ok) {
-    //             obterPublicacoes();
-
-    //             finalizarAguardar();
-    //         } else {
-    //             console.log('Erro ao publicar!');
-    //             resposta.text().then(texto => {
-    //                 console.error(texto);
-    //                 finalizarAguardar(texto);
-    //             });
-    //         }
-    //     });
-
-    //     return false;
-    // }
-
-    function atualizarFeed(publicacoes) {
-        var feed = document.getElementById("content_itens");
-        feed.innerHTML = "";
-        for (let i = 0; i < publicacoes.length; i++) {
-            var publicacao = publicacoes[i];
-
-            // Conteúdo Item
-            var divPublicacao = document.createElement("a")
-
-            // Estilizando HTML
-            divPublicacao.innerHTML = `
+function atualizarFeedRandom(publicacoes){
+  var feed = document.getElementById("testando");
+  feed.innerHTML = "";
+  for (let i = 0; i<1; i++) {
+    var publicacao = publicacoes[i];
+    // Conteúdo Item
+    // Estilizando HTML
+    feed.innerHTML = `
+      <article class="principal-article" id="teste${i + 1}" onclick="obterID(this)">
+          <!-- Titulo -->
+          <h1>${publicacao.titulo}</h1>
+          <!-- Autor/Nota -->
+          <div class="principal-author">
+              <img src="imgs/profile.png" alt="Foto Autor">
+              <span class="span-author">${publicacao.autor}</span>
+              <span class="span-rate"><i class="bi bi-star-fill"></i></span>
+          </div>
+          <!-- Descrição -->
+          <p>${publicacao.descricao}</p>
+          <!-- Botão -->
+          <button class="btn principal-btn">Visualizar</button>
+      </article>`;
+      feed.style.background = `url(${publicacao.img})`;
+      feed.style.backgroundRepeat = 'no-repeat';
+      feed.style.backgroundSize = 'cover';
+      feed.style.backgroundPosition = 'top';
+      feed.style.backgroundBlendMode = 'darken';
+  }  
+}
+// Adciona ao HTML os dados
+function atualizarFeed(publicacoes) {
+  var feed = document.getElementById("content_itens");  
+  feed.innerHTML = "";
+  content_itens.innerHTML += `
+  <!-- Métrica -->
+  <article class="container-metricas">
+  <h1>Resenhas Encontradas: ${publicacoes.length}</h1>
+  </article>
+  `;
+  for (let i = 0; i < publicacoes.length; i++) {
+    var publicacao = publicacoes[i];
+    // Conteúdo Item
+    var divPublicacao = document.createElement("div");
+    // Estilizando HTML
+    divPublicacao.innerHTML += `            
+            <div id="teste${i + 1}" onclick="obterID(this)">
             <!-- Imagem -->
             <figure class="item-img">
               <img src="${publicacao.img}">
@@ -42,83 +51,82 @@
             <!-- Texto -->
             <article class="item-text">
               <!-- Titulo -->
-              <h3>${publicacao.id} <br>
-              ${publicacao.titulo}</h3>
+              <h1 style="display:none;">${publicacao.id}</h1>
+              <h3>${publicacao.titulo}</h3>
               <!-- Autor -->
               <div class="principal-author">
                 <img src="imgs/profile.png" alt="Foto Autor">
-                <span class="span-author">${publicacao.autor}</span>
+                <span class="descricao" style="display:none;">${publicacao.descricao}</span>
+                <span class="span-author">${publicacao.autor}</span>                
                 <span class="span-rate"><i class="bi bi-star-fill"></i> ${publicacao.nota}</span>
               </div>
-            </article>`;
+            </article>
+            </div>`;
+    // Adiciona a classe
+    divPublicacao.className = "container-item";
+    feed.appendChild(divPublicacao);
+  }  
+}
 
-            // Adiciona a classe
-            divPublicacao.className = 'container-item';
-            divPublicacao.id = `container_item${i+1}`;
-            divPublicacao.href = 'artigo.html';
+// Pega as publicações
+function obterPublicacoes() {
+  // verificar_autenticacao();
+  // aguardar();
+  fetch("/publicacoes")
+    .then((resposta) => {
+      if (resposta.ok) {
+        resposta.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-            feed.appendChild(divPublicacao);
-        }
-    }
-
-    function obterPublicacoes() {
-        // aguardar();
-        fetch("/publicacoes")
-        .then(resposta => {
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                   
-                    atualizarFeed(resposta);
-
-                    // finalizarAguardar();
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-                finalizarAguardar("Nenhum resultado encontrado ou erro na API");
-            }
-        })
-        .catch(function (error) {
-            console.error(`Erro na obtenção das publicações: ${error.message}`);
+          atualizarFeed(resposta);
+          atualizarFeedRandom(resposta);
         });
-    }
+      } else {
+        console.error("Nenhum dado encontrado ou erro na API");
+        finalizarAguardar("Nenhum resultado encontrado ou erro na API");
+      }
+    })
+    .catch(function (error) {
+      console.error(`Erro na obtenção das publicações: ${error.message}`);
+    });
+}
 
-    function teste(){
-        sessionStorage.setItem('id', '1');
-        console.log(sessionStorage)
-        window.location.href = 'artigo.html'
-    }
+// Seleciona a publicação
+function obterID(obj,fkPublicacao){
+  // Define o elemento em variável
+  var item = obj.id;
+  // Seleciona o item
+  // fkArtigo
+  var fkPublicacao = document.querySelector(`#${item} > .item-text > h1`).textContent;
+  // Caminho da Imagem
+  var srcImg = document.querySelector(`#${item} > .item-img > img`).src;
+  // Titulo
+  var titulo = document.querySelector(`#${item} > .item-text > h3`).textContent;
+  // Nota
+  var nota = document.querySelector(`#${item} > .item-text > .principal-author > .span-rate`).textContent;
+  // Descrição
+  var descricao = document.querySelector(`#${item} > .item-text > .principal-author > .descricao`).textContent;
+  // Armazena no Session Storage
+  sessionStorage.setItem('fkPublicacao', `${fkPublicacao}`);      
+  sessionStorage.setItem('imgSource', `${srcImg}`);      
+  sessionStorage.setItem('titulo', `${titulo}`);      
+  sessionStorage.setItem('nota', `${nota}`);      
+  sessionStorage.setItem('descricao', `${descricao}`);      
+  // Redireciona
+  window.location.href = 'artigo.html';
+}
 
-    // function obterPublicacoesPorUsuario(idUsuario) {
-    //     fetch(`/publicacoes/${idUsuario}`)
-    //     .then(resposta => {
-    //         if (resposta.ok) {
-    //             resposta.json().then(function (resposta) {
-    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-    //                 // alert(JSON.stringify(resposta))
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //         }
-    //     })
-    //     .catch(function (error) {
-    //         console.error(`Erro na obtenção das publicações do usuário: ${error.message}`);
-    //     });
-    // }
-
-    // function aguardar() {
-    //     btn_publicar.disabled = true;
-    //     img_aguarde.style.visibility = 'visible';
-    //     div_erro.style.visibility = 'hidden';
-    // }
-
-    // function finalizarAguardar(resposta) {
-    //     btn_publicar.disabled = false;
-    //     img_aguarde.style.visibility = 'hidden';
-    //     if (resposta) {
-    //         div_erro.style.visibility = 'visible';
-    //         div_erro.innerHTML = resposta;
-    //     }
-    // }
-
-    // verificar_autenticacao();
+// Obtem os dados
+function obterDados(){
+  obterPublicacoes();
+  var tituloArtigo = sessionStorage.titulo;
+  var notaArtigo = sessionStorage.nota;
+  var descricaoArtigo = sessionStorage.descricao;
+  // Imagem do Artigo
+  // Titulo
+  document.querySelector(`.principal-article > h1`).innerHTML = tituloArtigo;
+  // Nota
+  document.querySelector(`.principal-article > .principal-author > .span-rate`).innerHTML = `<i class="bi bi-star-fill"></i> ${notaArtigo}`;
+  // Descrição
+  document.querySelector(`.principal-article > p`).innerHTML = `${descricaoArtigo}`;
+}

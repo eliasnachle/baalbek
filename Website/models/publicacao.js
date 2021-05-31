@@ -24,17 +24,21 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         autor: {
-            field: 'descricao',
+            field: 'autor',
             type: DataTypes.STRING,
             allowNull: false
         },
         nota: {
-            field: 'descricao',
+            field: 'nota',
             type: DataTypes.STRING,
             allowNull: false
         },
         img: {
             field: 'img',
+            type: DataTypes.STRING,
+            allowNull: false
+        },categoria: {
+            field: 'categoria',
             type: DataTypes.STRING,
             allowNull: false
         }

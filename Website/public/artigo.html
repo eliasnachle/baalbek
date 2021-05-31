@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="css/article.css">
     <script src="funcoes.js"></script>
     <script src="js/artigos.js"></script>
+    <script src="js/publicacoes.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
   </head>
-  <body onload="obterArtigo()">
+  <body onload="obterDados()">
     <!-- Header Usuário -->
     <header class="header">
         <!-- Usuário -->
@@ -30,7 +31,7 @@
           <div class="user-name">
             <span id="b_usuario"></span>
           </div>
-        </div>
+        </div> 
       </header>
     <!-- Menu Lateral -->
     <section class="navbar-vertical">
@@ -46,11 +47,11 @@
         <!-- Links -->
         <nav class="nav-vertical">
           <ul>
-            <a href="panel.html" class="nav-link active">
+            <a href="resenhas.html" class="nav-link active">
               <i class="icon-theory nav-links-icon"></i>
               <span class="nav-links-name active-span">Resenhas</span>
             </a>
-            <a href="panel.html" class="nav-link">
+            <a href="teorias.html" class="nav-link">
               <i class="icon-movies nav-links-icon"></i>
               <span class="nav-links-name">Teorias</span>
             </a>
@@ -67,14 +68,8 @@
       </section>
     <!-- Item Principal  -->
     <section class="content-principal">
-        <div class="container-principal">
+          <div id="container_principal" class="container-principal">
             <article class="principal-article">
-                <!-- Tags -->
-                <div class="tags">
-                  <span class="tag action">Ação</span>
-                  <span class="tag adventure">Aventura</span>
-                  <span class="tag marvel">Marvel</span>
-                </div>
                 <!-- Titulo -->
                 <h1>Resenha — Pantera Negra
                 (sem spoilers)</h1>
@@ -87,6 +82,7 @@
                 <!-- Descrição -->
                 <p>A icônica introdução da música "O Ciclo da Vida" de "O Rei Leão", 
                 traduzida, diz "Lá vem um leão.</p>
+                <h1 id="teste"></h1>
             </article>
         </div>
     </section>
@@ -95,3 +91,30 @@
     </div>    
   </body>
 </html>
+<script>
+  function obterDados(){
+    obterArtigoId();
+    obterPublicacoes();
+
+    var imgArtigo = sessionStorage.imgSource;
+    var tituloArtigo = sessionStorage.titulo;
+    var notaArtigo = sessionStorage.nota;
+    var descricaoArtigo = sessionStorage.descricao;
+    // container_principal.style.background = `red`;
+    // var titulo = document.querySelector(`#${item} > .item-text > h3`).textContent;
+    // var nota = document.querySelector(`#${item} > .item-text > .principal-author > .span-rate`).textContent;
+    // var descricao = document.querySelector(`#${item} > .item-text > .principal-author > .descricao`).textContent;
+    // Imagem do Artigo
+    container_principal.style.background = `url(${imgArtigo})`;
+    container_principal.style.backgroundRepeat = 'no-repeat';
+    container_principal.style.backgroundSize = 'cover';
+    container_principal.style.backgroundPosition = 'top';
+    container_principal.style.backgroundBlendMode = 'darken';
+    // Titulo
+    document.querySelector(`.principal-article > h1`).innerHTML = tituloArtigo;
+    // Nota
+    document.querySelector(`.principal-article > .principal-author > .span-rate`).innerHTML = `<i class="bi bi-star-fill"></i> ${notaArtigo}`;
+    // Descrição
+    document.querySelector(`.principal-article > p`).innerHTML = `${descricaoArtigo}`;
+  }
+</script>

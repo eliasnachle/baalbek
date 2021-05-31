@@ -151,6 +151,8 @@ function validate_form_login(){
     }
 }
 
+/* <form id="form_login" method="post" onsubmit="return entrar()"></form> */
+
 // Loga o usuário
 function entrar() {
     var formulario = new URLSearchParams(new FormData(form_login));
@@ -166,7 +168,7 @@ function entrar() {
                 sessionStorage.login_usuario_meuapp = json.login;
                 sessionStorage.nome_usuario_meuapp = json.nome;
 
-                window.location.href = 'panel.html';
+                window.location.href = 'artigo.html';
             });
 
         } else {

@@ -9,7 +9,6 @@ linkColorMenu.forEach(i => i.addEventListener('click', colorLinkMenu));
 /* ----------
 Soluções FAQ
 ------------*/
-
 // Conexão
 function conexao_1(){
     var titulo = document.getElementById('current_title');

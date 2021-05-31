@@ -3,29 +3,32 @@ var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Artigo = require('../models').Artigo;
 
-// /* ROTA QUE RECUPERA CRIA UMA PUBLICAÇÃO */
-router.post('/publicar/:idUsuario', function(req, res, next) {
-    console.log("Iniciando Publicação...")
+// // /* ROTA QUE RECUPERA CRIA UMA PUBLICAÇÃO */
+// router.post('/publicar/:idUsuario', function(req, res, next) {
+//     console.log("Iniciando Publicação...")
     
-	let idUsuario = req.params.idUsuario;
+// 	let idUsuario = req.params.idUsuario;
 
-    Publicacao.create({
-        descricao: req.body.descricao,
-        fkUsuario: idUsuario
-    }).then(resultado => {
-        console.log("Post realizado com sucesso!!");
-        res.send(resultado);
-    }).catch(erro => {
-        console.log('DEU UM ERRINHO')
-        console.error(erro);
-        res.status(500).send(erro.message);
-    })
-}) 
+//     Publicacao.create({
+//         descricao: req.body.descricao,
+//         fkUsuario: idUsuario
+//     }).then(resultado => {
+//         console.log("Post realizado com sucesso!!");
+//         res.send(resultado);
+//     }).catch(erro => {
+//         console.log('DEU UM ERRINHO')
+//         console.error(erro);
+//         res.status(500).send(erro.message);
+//     })
+// }) 
+ 
+/* ROTA QUE RECUPERA TODOS OS ARTIGOS */
+router.get('/:fkPublicacao', function(req, res, next) {
 
-/* ROTA QUE RECUPERA TODAS OS ARTIGOS */
-router.get('/', function(req, res, next) {
-	console.log('Recuperando todos os artigos');
-	
+	var fkPublicacao = req.params.fkPublicacao;
+
+	console.log(fkPublicacao);
+
     let instrucaoSql = `SELECT 
     idArtigo,
 	subTitulo1,
@@ -33,7 +36,7 @@ router.get('/', function(req, res, next) {
 	subTitulo2,
 	p2
     FROM tbArtigo
-	WHERE idArtigo = 3000`;
+	WHERE fkPublicacao = ${fkPublicacao}`;
 
 	sequelize.query(instrucaoSql, {
 		model: Artigo,
