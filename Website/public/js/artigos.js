@@ -18,7 +18,6 @@ function atualizarArtigo(artigos) {
         contentArtigo.appendChild(conteudoArtigo);
     }
 }
-
 // Recupera Artigo pelo id da Publicação
 function obterArtigoId(fkPublicacao) {
     // aguardar();
@@ -29,7 +28,11 @@ function obterArtigoId(fkPublicacao) {
             resposta.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                
-                atualizarArtigo(resposta);                
+                atualizarArtigo(resposta);   
+                // Atualiza url e Titulo da Página
+                var titulo = sessionStorage.titulo.toLowerCase();
+                window.history.pushState('','',`${titulo.replace(/[\W+]+/ig,"-")}`);
+                document.title = sessionStorage.titulo;
                 // finalizarAguardar();
             });
         } else {

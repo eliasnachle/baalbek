@@ -7,17 +7,23 @@
     <title>Cadastre-se | Baalbek</title>
     <link rel="stylesheet" href="css/form.css">
     <script src="js/validation_form.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
     <!-- Conteúdo -->
     <main class="content">
-        <section class="content-bakground">
-          <img src="imgs/background_form.svg" />
-        </section>
+        <section class="content-bakground"></section>
         <!-- Conteúdo Formulário -->
         <section class="content-form">
           <!-- Fomrulário -->
-          <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+          <form id="form_cadastro" method="post">
             <div class="form-logo">
               <figure>
                 <a href="index.html"><img src="imgs/baalbek_logo_red.svg" alt="Logotipo Baalbek"/></a>
@@ -31,34 +37,35 @@
               <!-- Campo Nome -->
               <div class="form-input">
                 <label>Nome:</label>
-                <input type="text" placeholder="Digite seu nome"  id="ipt_name" name="nome" onkeyup="validate_name()"/>
+                <input type="text" placeholder="Digite seu nome" id="ipt_name" name="nome" onkeyup="validate_name()" maxlength="35"/>
                 <!-- Mensagem de Validação -->
                 <span class="msg-validate" id="msg_validate_name"></span>
               </div>                
               <!-- Campo E-mail -->
               <div class="form-input">
                 <label>E-mail:</label>
-                <input type="text" placeholder="Digite seu e-mail" id="ipt_email" name="email" onkeyup="validate_email()"/>
+                <input type="text" placeholder="Digite seu e-mail" id="ipt_email" name="email" onkeyup="validate_email()" max="255"/>
                 <!-- Mensagem de Validação -->
                 <span class="msg-validate" id="msg_validate_email"></span>
               </div>                
               <!-- Campo Usuário -->
               <div class="form-input">
                 <label>Login:</label>
-                <input type="text" placeholder="Digite seu login" name="login" id="ipt_login" onkeyup="validate_login()"/>
+                <input type="text" placeholder="Digite seu login" name="login" id="ipt_login" onkeyup="validate_login()" maxlength="45"/>
                 <!-- Mensagem de Validação -->
                 <span class="msg-validate" id="msg_validate_login"></span>
               </div>              
               <!-- Campo Senha -->
               <div class="form-input">
+                <i class="fa fa-eye-slash toggle-passowrd" onclick="toggle_password()"></i>
                 <label>Senha:</label>
-                <input type="text" placeholder="Digite sua senha" name="senha" id="ipt_password" onkeyup="validate_password()"/>
+                <input type="password" placeholder="Digite sua senha" name="senha" id="ipt_password" onkeyup="validate_password()" maxlength="30"/>
                 <!-- Mensagem de Validação -->
                 <span class="msg-validate" id="msg_validate_password"></span> 
               </div>
               <span class="msg-validate" id="msg_validate_register"></span>
             <!-- Botão Enviar -->
-            <div class="form-btn" id="form_btn">
+            <div class="form-btn" id="form_btn">              
               <button id="btn_entrar" value="Cadastrar" type="button" onclick="validate_form_register()"><a>Cadastrar</a></button>
               <!-- Msg Registrar-se -->
               <p>Já é cadastrado? <a href="login.html">Faça login</a></p>

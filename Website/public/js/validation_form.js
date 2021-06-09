@@ -21,15 +21,26 @@ window.onload = random_phrase;
 /*------------------
 Validação de Campos
 -------------------*/
+// Exibir Senha
+function toggle_password(){
+    var icon =  document.querySelector('.form-input > i');
+    if(ipt_password.type == 'password'){
+        icon.className = 'fa fa-eye toggle-passowrd';
+        ipt_password.type = 'text';
+    } else {
+        icon.className = 'fa fa-eye-slash toggle-passowrd';
+        ipt_password.type = 'password'
+    }
+}
 // Expressões Regulares
 //Expressão Nome
-var nameReg = /^[À-úA-z ]{3,}$/;
+var nameReg = /^[À-úA-z ]{3,35}$/;
 // Expressão Email
-var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;//Expressão Usuário
+var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;
 // Expressão Login
 var loginReg = /^[A-z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$/;
 //Expressão Senha
-var passwordReg = /^(?=.*[0-9]{3})(?=.*[A-Z]{1})(?=.*[a-z]{1})[a-zA-Z0-9]{6,30}$/;
+var passwordReg = /^(?=.*[0-9]{1})(?=.*[\W]{1})(?=.*[a-z]{1})[a-zA-Z0-9\W]{6,30}$/;
 // Validação Nome
 function validate_name(){
     // Variável Input
@@ -65,13 +76,22 @@ function validate_login(){
 }
 // Validação Senha
 function validate_password(){
+    var url = window.location.pathname;
     // Variável Input
     var password = ipt_password.value;
     // Validação
-    if(password.match(passwordReg)){
-        msg_validate_password.innerHTML = '';
-    } else {
-        msg_validate_password.innerHTML = 'Senha inválida';
+    if(url === '/cadastro.html'){
+        if(password.match(passwordReg)){
+            msg_validate_password.innerHTML = '';
+        } else {
+            msg_validate_password.innerHTML = 'A senha deve conter números, símbolos, letras <br> minusculas e maiusculas';
+        }        
+    } else{
+        if(password.match(passwordReg)){
+            msg_validate_password.innerHTML = '';
+        } else {
+            msg_validate_password.innerHTML = 'Senha inválida';
+        }        
     }
 }
 // Valida Todos os Campos
@@ -84,7 +104,7 @@ function validate_form_register(){
     campos = [name,email,login,password]
     regEx = [nameReg,emailReg,loginReg,passwordReg]
     // Validação
-    for(i=0; i<5;i++){
+    for(i=0; i<4;i++){
         if(campos[i].match(regEx[i])){
             // Se todos os campos estiverem válidos
             if(i==3){
@@ -97,7 +117,7 @@ function validate_form_register(){
         }
     }
 }
-// Válida o Usuário
+// Notifica o Usuário
 function cadastroRealizado(){
     form_container.style.display = 'none';
     form_btn.style.display = 'none';
@@ -105,7 +125,7 @@ function cadastroRealizado(){
     <div class="container-verify-email">
     <img src="imgs/verify_email.svg"/>
     <h1>Cadastrado com sucesso!</h1>
-    <p style="white-space:unset;padding:1em 0;">Sua conta foi criado, clique no botão abaixo<br>
+    <p style="font-size:var(--textInputSize);white-space:unset;padding:1em 0;">Sua conta foi criado, clique no botão abaixo<br>
     para acessar sua conta, e ter acesso ao mundo Baalbek!</p>        
     <div class="form-btn">
         <button class="btn"><a href="login.html">Acesse sua conta</a></button>

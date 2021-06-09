@@ -21,6 +21,7 @@ Menu
     padding: 0 2em;
     align-items: center;
     justify-content: start;
+    z-index: 9;
 }
 .navbar-nav ul{
     list-style: none;
@@ -49,7 +50,7 @@ Menu
   cursor: pointer;
 }
 /* Menu Responsivo */
-.navbar-hamburger,.mobile-navbar-btn,.mobile-navbar-logo,.mobile-navar-close{display: none;}
+.navbar-hamburger,.mobile-navbar-btn,.mobile-navbar-logo,.mobile-navar-close{display: none;color:var(--white);}
 /*-------Fim Menu-------*/
 /* -----------
 Responsividade
@@ -65,7 +66,7 @@ Responsividade
     .navbar-nav {
         display: block;
         background: var(--black);
-        height: 100%;
+        height: 100vh;
         position: absolute;
         top: 0;
         left: -1000px;        

@@ -5,24 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Baalbek | Login</title>
-    <link rel="stylesheet" href="css/form.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/form.css"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <script src="js/validation_form.js"></script>
   </head>
   <body>
     <!-- Conteúdo -->
     <main class="content">
-      <section class="content-bakground">
-        <img src="imgs/background_form.svg" />
-      </section>
+      <section class="content-bakground"></section>
       <!-- Conteúdo Formulário -->
       <section class="content-form">
         <!-- Fomrulário -->
         <form id="form_login" method="post" onsubmit="return entrar()">
           <div class="form-logo">
-            <figure>
-              <a href="index.html"><img src="imgs/baalbek_logo_red.svg" alt="Logotipo Baalbek"/></a>
-            </figure>
             <article>
+              <figure>
+                <a href="index.html"><img src="imgs/baalbek_logo_red.svg" alt="Logotipo Baalbek"/></a>
+              </figure>
               <p id="frase"></p>
             </article>
           </div>
@@ -30,14 +36,15 @@
             <!-- Campo Login -->
             <div class="form-input">
               <label>Login:</label>
-              <input type="text" placeholder="Digite seu login" name="login" id="ipt_login" onkeyup="validate_login()"/>
+              <input type="text" placeholder="Digite seu login" name="login" id="ipt_login" onkeyup="validate_login()" maxlength="45"/>
               <!-- Mensagem de Validação -->
               <span class="msg-validate" id="msg_validate_login"></span>
             </div>
             <!-- Campo Senha -->
             <div class="form-input">
+              <i class="fa fa-eye-slash toggle-passowrd" onclick="toggle_password()"></i>
               <label>Senha:</label>
-              <input type="password" placeholder="Digite sua senha" name="senha" id="ipt_password" onkeyup="validate_password()"/>
+              <input type="password" placeholder="Digite sua senha" name="senha" id="ipt_password" onkeyup="validate_password()" maxlength="30"/>
               <!-- Mensagem de Validação -->
               <span class="msg-validate" id="msg_validate_password"></span>
             </div>

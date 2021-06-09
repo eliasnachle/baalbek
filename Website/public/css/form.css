@@ -11,39 +11,48 @@ Configurações da Página
     box-sizing: border-box;
     font-family: 'Nunito Sans',sans-serif;
 }
-/* Paleta de Cores */
 :root {
-  --black: #212322;
-  --primary: #E10600;
-  --white: #fff;
-  --gray: #989898;
-  --border: #363636;
-  --textInput: #484848;
+    /* Paleta de Cores */
+    --black: #212322;
+    --primary: #E10600;
+    --white: #fff;
+    --gray: #989898;
+    --border: #363636;
+    --textInput: #484848;
+    /* Widths */
+    --backgroundImage: calc(100% - 680px);
+    --logoSize: clamp(15em,16rem,18em);
+    --textSize: clamp(15px,1.5vw,19px);
+    --textInputSize: clamp(14px,2vw,16px);
+    --textLabelSize: clamp(16px,2vw,18px);
+    --titleSize: clamp(3em,2vw,3.5em);
 }
 /* Adaptando altura */
 html,body{
     height: 100%;
 }
-body{
-    background-image: url("../imgs/background_form.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
 /* -----Fim Configurações--------*/
 /*---------
  Background
 --------- */
-.content-bakground{display: none;}
+.content-bakground{
+    background-image: url("../imgs/background_form.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: var(--backgroundImage);
+}
 /* -------
 Formulário 
 ----------*/
+.content{
+    display: flex;
+    width: 100%;
+}
 .content-form{
     background: var(--black);
-    position: absolute;
-    right: 0;
-    height: 100%;
-    border-radius: 20px 0 0 20px;
+    width: 680px;
+    min-height: 100vh;
     padding: 0 5em;
     display: flex;
     align-items: center;
@@ -51,28 +60,31 @@ Formulário
 /* Logo Formulário */
 .form-logo{text-align: center;}
 .form-logo img{
-    width: 18em;
+    width: var(--logoSize);
 }
 .form-logo article p {
     color: var(--gray);
-    font-size: 16px;
+    font-size: var(--textSize);
     white-space: pre-line;
     max-width: 35em;
 }
 /* Inputs */
-.form-container{
-    padding: 5em 0 1em 0;
-}
-.form-input{
-    padding: 0.5em 0 1em 0;
-}
+.form-container{padding: 5em 0 1em 0;}
+.form-input{padding: 0.5em 0 1em 0;}
 /* Label */
 .form-input label{
     display: block;
-    font-size: 18px;
+    font-size: var(--textLabelSize);
     letter-spacing: 0.45px;
     font-weight: 700;
     color: var(--white);
+}
+/* Icone */
+.toggle-passowrd{
+    color: var(--white);
+    position: absolute;
+    margin-top: 45px;
+    margin-left: calc(680px - 250px);
 }
 /* Input */
 ::placeholder{color: var(--textInput);}
@@ -82,7 +94,8 @@ Formulário
     border-radius: 4px;
     border: 1.5px solid var(--border);
     background: var(--black);
-    font-size: 16px;
+    /* font-size: 16px; */
+    font-size: var(--textInputSize);
     letter-spacing: 0.5px;
     color: var(--white);
     transition: border 0.15s ease-in;
@@ -103,7 +116,7 @@ Formulário
     background: #bb0a04;
 }
 .form-btn button,.form-btn button a,.form-btn p{
-    font-size: 16px;
+    font-size: var(--textInputSize);
     font-weight: 600;
     letter-spacing: 0.5px;
     color: var(--white);
@@ -127,10 +140,11 @@ Conta Criada
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 /* Titulo */
 .container-verify-email h1 {
-    font-size: 50px;
+    font-size: var(--titleSize);
     color: var(--white);
 }
 /* Texto */
@@ -157,7 +171,6 @@ Conta Criada
     Formulário
     ----------*/
     .content-form{
-        position: unset;
         border-radius: unset;
         justify-content: center;
         align-items: center;
@@ -170,6 +183,19 @@ Conta Criada
         display: flex;
         flex-direction: column;
     }
+    .toggle-passowrd{
+        margin-top: 45px;
+        /* margin-left: calc(680px - 50%); */
+        /* margin-left: 58%; */
+        /* margin-left: clamp(73vw,50vw,65vw); */
+        margin-left: 57vw;
+    }
     .form-input input{width: unset;}
     /* Inputs */
+}
+@media screen and (max-width: 780px){
+    .toggle-passowrd{
+        margin-top: 39.5px;
+        margin-left: 73.5vw;
+    }    
 }

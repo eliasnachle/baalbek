@@ -275,7 +275,9 @@ Conteúdo
     width: 30em;
     border-radius: 15px;
     padding: 1em;
+    transition: 300ms ease;
 }
+.container-item:hover{transform: scale(1.05);}
 /* Imagem Item */
 .item-img img{
     width: 100%;
@@ -365,8 +367,6 @@ Responsividade
         .tags {display: flex;align-items: flex-start;}        
         /* Itens */
         .content-itens {padding: 1em 1em 7em 1em;}
-        .container-item{width: 100%;}
-        .container-item:hover{transform: scale(1.1);}
         .item-img{
             height: auto;
             width: 100%;
